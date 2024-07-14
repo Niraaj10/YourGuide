@@ -4,6 +4,7 @@ import bg from '../Assests/img/yash-raut--JVG6PsOrKA-unsplash.jpg'
 import ExploreP from './ExploreP'
 import Rating from './Rating'
 import Review from './Review'
+import Footer from './Footer'
 
 const Home = () => {
     return (
@@ -55,6 +56,8 @@ const Home = () => {
                 <Review />
 
 
+
+                <Footer />
 
             </div>
         </>
