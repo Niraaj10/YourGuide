@@ -27,8 +27,11 @@ body {
 }
 
 .transparent-gradient {
-  -webkit-mask-image: linear-gradient(360deg, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
-  mask-image: linear-gradient(360deg, rgb(0, 0, 0, 1), rgba(255, 255, 255, 0));
+  /* -webkit-mask-image: linear-gradient(360deg, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+  mask-image: linear-gradient(360deg, rgb(0, 0, 0, 1), rgba(255, 255, 255, 0)); */
+
+  background-image: linear-gradient(to top, rgba(255,0,0,0), rgb(255, 255, 255));
+  height: 200px;
 }
 
 code {

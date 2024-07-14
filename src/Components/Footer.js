@@ -10,9 +10,10 @@ const Footer = () => {
         <>
             <div>
                 {/* footer */}
-                <div>
+                <div className='relative bg-[#003531]'>
                     {/* <img src={bgImg} alt="" style={background: -webkit-linear-gradient(top, rgba(255,0,0,0), rgba(255,0,0,1));}/> */}
-                    <img src={bgImg} alt="background" className="w-full h-full object-cover transparent-gradient" />
+                    <div className='transparent-gradient absolute z-10 w-full'></div>
+                    <img src={bgImg} alt="background" className="w-full h-full object-cover relative z-0" />
 
                 </div>
 
