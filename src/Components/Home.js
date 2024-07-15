@@ -10,7 +10,7 @@ const Home = () => {
     return (
         <>
             <div className='Home flex flex-col'>
-                <Navbar />
+                {/* <Navbar /> */}
                 <div className='flex justify-center items-start z-1'>
                     <img src={bg} alt="" className='absolute top-[-110px] h-[800px]  w-[95vw] object-cover rounded-b-[70px]' />
                 </div>
