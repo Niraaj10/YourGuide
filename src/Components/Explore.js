@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import img1 from '../Assests/img/img-1.jpg'
 import img2 from '../Assests/img/img-2.jpg'
 import img3 from '../Assests/img/img-3.jpg'
@@ -9,9 +9,69 @@ import bgEx from '../Assests/img/bgEx.jpg'
 import navigate from '../Assests/svg/Navi.svg'
 import search from '../Assests/svg/Search.svg'
 import Footer from './Footer'
+import { getACLocation } from '../ApiData/ApiData'
 
 
 const Explore = () => {
+  const [query, setQuery] = useState('');
+  const [suggestions, setSuggestions] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+
+  const ChangeQuery = (e) => {
+    setQuery(e.target.value);
+  }
+
+  // const handlequery = async () => {
+  //   // const Loca = e.target.value;
+  //   // setQuery(Loca);
+
+  //   // if (Loca.length > 2) {
+  //   //   setLoading(true)
+  //     try {
+  //       const LocaS = await getACLocation(query);
+  //       setSuggestions(LocaS);
+  //       console.log(suggestions);
+        
+  //       setLoading(false);
+  //     } catch (error) {
+  //       setError(error);
+  //     } 
+  //   } 
+  //   // else {
+  //   //   setSuggestions([]);
+
+  //   // }
+
+
+  // };
+
+  const handlequery = async () => {
+    setLoading(true)
+
+    if (loading === true){
+      console.log("Loadingg....wait a min.....");
+      
+    }
+
+    try {
+      const LocaS = await getACLocation(query);
+      setSuggestions(LocaS);
+        // console.log(suggestions);
+        console.log(LocaS);      
+        setLoading(false);
+    } catch (error) {
+      setError(error);
+    }
+
+  }
+
+
+
+
+
+
   return (
     <>
       <div>
@@ -28,10 +88,26 @@ const Explore = () => {
 
                 <div className='w-full flex gap-11'>
                   <div className='flex w-[80%] '>
-                  <img src={navigate} alt="" className='border-b border-[#777E91]'/>
-                  <input type="text" name="" id="" className='outline-none p-3  border-b w-full border-[#777E91]' />
+                    <img src={navigate} alt="" className='border-b border-[#777E91]' />
+
+                    <input
+                      type="text"
+                      name=""
+                      id=""
+                      className='outline-none p-3  border-b w-full border-[#777E91]'
+                      value={query}
+                      placeholder='Enter place you want to explore'
+                      onChange={ChangeQuery}
+                    />
+
+                    {/* <div>
+                      {suggestions.map(loc => (
+                        
+                      ))}
+                    </div> */}
+
                   </div>
-                  <button className='bg-[#41D6C7] p-3 rounded-full'>
+                  <button onClick={handlequery} className='bg-[#41D6C7] p-3 rounded-full'>
                     <img src={search} alt="" />
                   </button>
                 </div>
@@ -65,7 +141,12 @@ const Explore = () => {
         </div>
 
         <div className="SearchCont">
-          
+            {suggestions.map(loc => (
+              <ul >
+                <li>{loc.result_type}</li>
+                {/* <li>{loc.resu}</li> */}
+              </ul>
+            ))}
         </div>
 
         <Footer />
