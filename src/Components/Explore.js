@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useRef, useState } from 'react'
 import img1 from '../Assests/img/img-1.jpg'
 import img2 from '../Assests/img/img-2.jpg'
 import img3 from '../Assests/img/img-3.jpg'
@@ -9,7 +9,9 @@ import bgEx from '../Assests/img/bgEx.jpg'
 import navigate from '../Assests/svg/Navi.svg'
 import search from '../Assests/svg/Search.svg'
 import Footer from './Footer'
+import Rat from '../Assests/svg/Rating.svg'
 import { getACLocation, getAttractions } from '../ApiData/ApiData'
+import { BounceLoader } from 'react-spinners'
 
 
 const Explore = () => {
@@ -18,6 +20,7 @@ const Explore = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
   const [attraction, setAttraction] = useState([]);
+  const ContRef = useRef(null);
 
 
   const ChangeQuery = (e) => {
@@ -54,6 +57,10 @@ const Explore = () => {
     if (loading === true) {
       console.log("Loadingg....wait a min.....");
 
+    }
+
+    if (ContRef.current) {
+      ContRef.current.scrollIntoView({ behaviur: 'smooth'});
     }
 
     try {
@@ -152,11 +159,16 @@ const Explore = () => {
 
         {/* <div className="SearchCont bg-white grid grid-cols-2 gap-10 h-fit px-36 py-2 "> */}
         <div
-          className={`SearchCont bg-[#FCFCFD] grid grid-cols-4 gap-10  px-36 py-2
-          ${loading === false ? 'h-fit' : 'h-[40vh]'} `}
+          ref={ContRef}
+          className={`SearchCont bg-white grid grid-cols-4 gap-10  px-36 py-2 pt-24 relative
+          ${loading === false ? 'h-fit bg-[#FCFCFD]' : 'h-[40vh] '} `}
         >
 
-          {loading && <p>Loading...</p>}
+          {loading && <>
+          <div className='mx-auto absolute top-28 left-[50%]'>
+          <BounceLoader color="#41D6C7" />
+          </div>
+          </>}
 
           {attraction.map((loc, index) => (
             <>
@@ -165,7 +177,7 @@ const Explore = () => {
               {loc.name && loc.photo && loc.photo.images && (
                 <>
 
-                  <div key={index} className='flex flex-col bg-white w-[300px] rounded-3xl shadow-sm '>
+                  <div key={index} className='flex flex-col bg-white w-[300px] h-[350px] rounded-3xl shadow-sm '>
 
 
                     {/* <div>{loc.result_type}</div> */}
@@ -174,21 +186,31 @@ const Explore = () => {
                         <img src={loc.photo.images.medium.url} alt={loc.name} className='w-[300px] h-[200px] rounded-t-2xl' />
                       </div>
                     )}
-                    <div className='p-3 flex-initial flex flex-col justify-between '>
+                    <div className='p-3 flex-initial flex flex-col justify-between h-full pb-5'>
 
                       <div className='flex justify-between'>
                         <div className='font-bold text-lg w-[200px] items-start'>{loc?.name}</div>
                       </div>
 
-                      <div className='text-sm'>
-                        <span className='font-bold text-xs'>Add: </span>
+                      <div className='text-xs'>
+                        <div>
+                        <span className='font-bold text-[10px]'>Add: </span>
                         {loc?.address}
+                        </div>
+                        { loc.website && (
+                        <div className='text-xs'>
+                          <span className='font-bold text-[10px]'>Official Website: </span>
+                          {loc?.website}
+                        </div>
+                        )}
                       </div>
 
                       <div className='flex justify-between gap-10'>
-                        <div>{loc?.rating}</div>
-                        <div className='items-end'>{loc?.open_now_text}</div>
-                        {/* <div>{loc?.website}</div> */}
+                        <div className='flex gap-1 font-bold'>
+                          <img src={Rat} alt="" />
+                          {loc?.rating}
+                          </div>
+                        <div className={`items-end ${loc.open_now_text === 'Open Now' ? 'text-[#4AC63F]' : 'text-red-600'}`}>{loc?.open_now_text}</div>
                       </div>
                     </div>
                   </div>

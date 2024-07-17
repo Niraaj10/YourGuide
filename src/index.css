@@ -16,6 +16,12 @@
 /* font-family: "Alex Brush", cursive; */
 @import url('https://fonts.googleapis.com/css2?family=Alex+Brush&family=Allison&family=Allura&family=Figtree:ital,wght@0,300..900;1,300..900&display=swap');
 
+
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
   /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -24,6 +30,7 @@ body {
   font-family: "Open Sans", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
 }
 
 .transparent-gradient {
