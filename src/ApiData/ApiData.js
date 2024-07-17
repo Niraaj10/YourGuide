@@ -22,9 +22,10 @@ export const getACLocation = async (query) => {
     
     try {
         const resp = await api.get('/locations/search', {
+        // const resp = await api.get('/attraction-filters/v2/list', {
             params: {
                 query: query,
-                limit: 10,
+                limit: 20,
             }
         });
 
@@ -38,18 +39,17 @@ export const getACLocation = async (query) => {
 
 
 
-
-// export const getACLocation = async (query) => {
-    
-//     try {
-//         const resp = await api.get('locations/v2/auto-complete', {
-//             params: {
-//                 query: query,
-//             }
-//         });
-//         return resp.data.data;
-//     } catch (error) {
-//         console.error("Error Fetching data", error);
-//         throw error;
-//     }
-// };
+export const getAttractions = async (LocName) => {
+    try {
+        // const resp = await api.get('/attraction-filters/v2/list', {
+        const resp = await api.get('/attractions/list', {
+            params: { 
+                location_id: LocName
+             },
+        });
+        return resp.data.data;
+    } catch (error) {
+        console.error("Error Fetching data", error);
+        throw error;
+    }
+};

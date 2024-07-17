@@ -9,7 +9,7 @@ import bgEx from '../Assests/img/bgEx.jpg'
 import navigate from '../Assests/svg/Navi.svg'
 import search from '../Assests/svg/Search.svg'
 import Footer from './Footer'
-import { getACLocation } from '../ApiData/ApiData'
+import { getACLocation, getAttractions } from '../ApiData/ApiData'
 
 
 const Explore = () => {
@@ -17,6 +17,7 @@ const Explore = () => {
   const [suggestions, setSuggestions] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [attraction, setAttraction] = useState([]);
 
 
   const ChangeQuery = (e) => {
@@ -33,7 +34,7 @@ const Explore = () => {
   //       const LocaS = await getACLocation(query);
   //       setSuggestions(LocaS);
   //       console.log(suggestions);
-        
+
   //       setLoading(false);
   //     } catch (error) {
   //       setError(error);
@@ -50,17 +51,26 @@ const Explore = () => {
   const handlequery = async () => {
     setLoading(true)
 
-    if (loading === true){
+    if (loading === true) {
       console.log("Loadingg....wait a min.....");
-      
+
     }
 
     try {
       const LocaS = await getACLocation(query);
+      // const LocaS = await getAttractions(query);
+      if (LocaS && LocaS.length > 0) {
+        const LocId = LocaS[0].result_object.location_id;
+        console.log(LocId);
+        const AttractionsDt = await getAttractions(LocId);
+        console.log(AttractionsDt);
+        setAttraction(AttractionsDt);
+      }
       setSuggestions(LocaS);
-        // console.log(suggestions);
-        console.log(LocaS);      
-        setLoading(false);
+
+      // console.log(suggestions);
+      // console.log(LocaS);
+      setLoading(false);
     } catch (error) {
       setError(error);
     }
@@ -140,13 +150,55 @@ const Explore = () => {
           </div>
         </div>
 
-        <div className="SearchCont">
-            {suggestions.map(loc => (
-              <ul >
-                <li>{loc.result_type}</li>
-                {/* <li>{loc.resu}</li> */}
-              </ul>
-            ))}
+        {/* <div className="SearchCont bg-white grid grid-cols-2 gap-10 h-fit px-36 py-2 "> */}
+        <div
+          className={`SearchCont bg-[#FCFCFD] grid grid-cols-4 gap-10  px-36 py-2
+          ${loading === false ? 'h-fit' : 'h-[40vh]'} `}
+        >
+
+          {loading && <p>Loading...</p>}
+
+          {attraction.map((loc, index) => (
+            <>
+
+
+              {loc.name && loc.photo && loc.photo.images && (
+                <>
+
+                  <div key={index} className='flex flex-col bg-white w-[300px] rounded-3xl shadow-sm '>
+
+
+                    {/* <div>{loc.result_type}</div> */}
+                    {loc.photo && loc.photo.images && (
+                      <div className='flex-none  h-[200px] '>
+                        <img src={loc.photo.images.medium.url} alt={loc.name} className='w-[300px] h-[200px] rounded-t-2xl' />
+                      </div>
+                    )}
+                    <div className='p-3 flex-initial flex flex-col justify-between '>
+
+                      <div className='flex justify-between'>
+                        <div className='font-bold text-lg w-[200px] items-start'>{loc?.name}</div>
+                      </div>
+
+                      <div className='text-sm'>
+                        <span className='font-bold text-xs'>Add: </span>
+                        {loc?.address}
+                      </div>
+
+                      <div className='flex justify-between gap-10'>
+                        <div>{loc?.rating}</div>
+                        <div className='items-end'>{loc?.open_now_text}</div>
+                        {/* <div>{loc?.website}</div> */}
+                      </div>
+                    </div>
+                  </div>
+
+                </>
+              )}
+            </>
+          ))}
+
+
         </div>
 
         <Footer />
