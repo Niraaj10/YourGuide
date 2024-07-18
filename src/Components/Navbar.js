@@ -11,11 +11,11 @@ const Navbar = () => {
             <div className='pr-32'>
               <Link to="/"><h2 className='fig text-5xl top-3 text-[#41D6C7] font-extrabold'>YourGuide.</h2></Link>
             </div>
-            <div className='flex gap-24 font-semibold text-gray-500 pr-48'>
+            <div className='flex gap-24 font-semibold text-gray-500 '>
 
               <Link to="/explore"><div>Explore</div></Link>
-              <Link to="/topcities"><div>Top Cities</div></Link>
-              <Link to="/blog"><div>Blog</div></Link>
+              <Link to="/topcities"><div>Trip planner</div></Link>
+              {/* <Link to="/blog"><div>Blog</div></Link> */}
               <Link to="/about"><div>About Us</div></Link>
             </div>
             <div className='flex gap-5 font-bold'>

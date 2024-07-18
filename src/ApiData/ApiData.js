@@ -53,3 +53,34 @@ export const getAttractions = async (LocName) => {
         throw error;
     }
 };
+
+const PROXY_URL = 'https://cors-anywhere.herokuapp.com/';
+const WIKIPEDIA_API_URL = 'https://en.wikipedia.org/w/api.php';
+
+export const getBlogInfo = async (Place) => {
+    try {
+        const resp = await axios.get(PROXY_URL + WIKIPEDIA_API_URL, {
+            params:{
+                action: 'query',
+                prop: 'extracts',
+                exintro:'',
+                explaintext: '',
+                format: 'json',
+                titles: Place
+            },
+            // headers: {
+            //     'Origin': 'http://localhost:3000'
+            //   }
+        })
+
+        console.log(resp);
+        
+        const pages = resp.data.query.pages;
+        const page = Object.values(pages)[0];
+        return page.extract;
+
+    } catch (error) {
+        console.error("Error fetching data", error);
+        throw error
+    }
+}

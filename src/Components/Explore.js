@@ -53,34 +53,38 @@ const Explore = () => {
 
   const handlequery = async () => {
     setLoading(true)
+    setSuggestions([]);
+    setAttraction([])
+    
 
-    if (loading === true) {
-      console.log("Loadingg....wait a min.....");
-
-    }
-
-    if (ContRef.current) {
-      ContRef.current.scrollIntoView({ behaviur: 'smooth'});
-    }
-
-    try {
-      const LocaS = await getACLocation(query);
-      // const LocaS = await getAttractions(query);
-      if (LocaS && LocaS.length > 0) {
-        const LocId = LocaS[0].result_object.location_id;
-        console.log(LocId);
-        const AttractionsDt = await getAttractions(LocId);
-        console.log(AttractionsDt);
-        setAttraction(AttractionsDt);
+      if (loading === true) {
+        console.log("Loadingg....wait a min.....");
+  
       }
-      setSuggestions(LocaS);
-
-      // console.log(suggestions);
-      // console.log(LocaS);
-      setLoading(false);
-    } catch (error) {
-      setError(error);
-    }
+  
+      if (ContRef.current) {
+        ContRef.current.scrollIntoView({ behaviur: 'smooth'});
+      }
+  
+      try {
+        const LocaS = await getACLocation(query);
+        // const LocaS = await getAttractions(query);
+        if (LocaS && LocaS.length > 0) {
+          const LocId = LocaS[0].result_object.location_id;
+          console.log(LocId);
+          const AttractionsDt = await getAttractions(LocId);
+          console.log(AttractionsDt);
+          setAttraction(AttractionsDt);
+        }
+        setSuggestions(LocaS);
+  
+        // console.log(suggestions);
+        // console.log(LocaS);
+        setLoading(false);
+      } catch (error) {
+        setError(error);
+        setLoading(false);
+      }   
 
   }
 
@@ -103,7 +107,7 @@ const Explore = () => {
               <div className='w-full relative flex flex-col gap-7'>
                 <label htmlFor="" className='font-bold'>Enter your Destination</label>
 
-                <div className='w-full flex gap-11'>
+                <div className='w-full flex items-center gap-11'>
                   <div className='flex w-[80%] '>
                     <img src={navigate} alt="" className='border-b border-[#777E91]' />
 
@@ -124,6 +128,7 @@ const Explore = () => {
                     </div> */}
 
                   </div>
+
                   <button onClick={handlequery} className='bg-[#41D6C7] p-3 rounded-full'>
                     <img src={search} alt="" />
                   </button>
@@ -170,6 +175,13 @@ const Explore = () => {
           </div>
           </>}
 
+          {error && 
+          <div className='mx-auto absolute top-28 left-[50%]'>
+          Sorryyy, No information found please enter valid place...
+          </div>
+          }
+         
+
           {attraction.map((loc, index) => (
             <>
 
@@ -197,17 +209,20 @@ const Explore = () => {
                         <span className='font-bold text-[10px]'>Add: </span>
                         {loc?.address}
                         </div>
-                        { loc.website && (
-                        <div className='text-xs'>
-                          <span className='font-bold text-[10px]'>Official Website: </span>
-                          {loc?.website}
-                        </div>
-                        )}
+                        {/* { loc.website && (
+                        // <div className='text-[10px] font-bold'>
+                        //   Official Website: 
+                        //   <div className='truncate text-xs font-light'>
+                        //   {loc?.website}
+                        //   </div>
+                          
+                        // </div>
+                        )} */}
                       </div>
 
                       <div className='flex justify-between gap-10'>
                         <div className='flex gap-1 font-bold'>
-                          <img src={Rat} alt="" />
+                          <img src={Rat} alt="" className='w-3' />
                           {loc?.rating}
                           </div>
                         <div className={`items-end ${loc.open_now_text === 'Open Now' ? 'text-[#4AC63F]' : 'text-red-600'}`}>{loc?.open_now_text}</div>
