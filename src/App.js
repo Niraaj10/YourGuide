@@ -3,7 +3,7 @@ import Home from './Components/Home'
 import Navbar from './Components/Navbar'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Explore from './Components/Explore'
-import TopCities from './Components/TopCities'
+import TripPlanner from './Components/TripPlanner'
 import Blog from './Components/Blog'
 import About from './Components/About'
 import Login from './Components/Login'
@@ -24,7 +24,7 @@ const App = () => {
           <Route path='/' element={<Home />} />
           <Route path='/home' element={<Home />} />
           <Route path='/explore' element={<Explore /> } />
-          <Route path='/topcities' element={<TopCities /> } />
+          <Route path='/tripPlanner' element={<TripPlanner /> } />
           <Route path='/blog' element={<Blog />  } />
           <Route path='/about' element={<About /> } />
           <Route path='/login' element={<Login />} />
