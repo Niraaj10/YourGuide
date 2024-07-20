@@ -3,8 +3,8 @@ import axios from 'axios';
 
 const API_URL = process.env.REACT_APP_TRAVEL_ADVISOR_API_URL;
 // console.log(API_URL);
-const AI_KEY = process.env.REACT_APP_OPEN_AI_API_KEY;
-console.log(AI_KEY);
+
+// console.log(AI_KEY);
 
 const API_KEY = process.env.REACT_APP_TRAVEL_API_KEY;
 
@@ -56,74 +56,37 @@ export const getAttractions = async (LocName) => {
 };
 
 
-
-
-// const PROXY_URL = 'https://cors-anywhere.herokuapp.com/';
-// const WIKIPEDIA_API_URL = 'https://en.wikipedia.org/w/api.php';
-
-// export const getBlogInfo = async (Place) => {
-//     try {
-//         const resp = await axios.get(PROXY_URL + WIKIPEDIA_API_URL, {
-//             params:{
-//                 action: 'query',
-//                 prop: 'extracts',
-//                 exintro:'',
-//                 explaintext: '',
-//                 format: 'json',
-//                 titles: Place
-//             },
-//             // headers: {
-//             //     'Origin': 'http://localhost:3000'
-//             //   }
-//         })
-
-//         console.log(resp);
-        
-//         const pages = resp.data.query.pages;
-//         const page = Object.values(pages)[0];
-//         return page.extract;
-
-//     } catch (error) {
-//         console.error("Error fetching data", error);
-//         throw error
-//     }
-// }
-
-
-// is there is a way to get the images of the given place and show the images along with the places information
-
-
-
-
-
-
-
-
-
 export const fetchTripData = async (city, startDate, endDate) => {
-    console.log(AI_KEY);
 
-    try {
-        const res = await axios.post('https://api.openai.com/v1/chat/completions', {
-            model: "gpt-3.5-turbo",
-            messages: [{
-                role: 'user',
-                content: `Create a detailed trip itinerary for ${city} from ${startDate} to ${endDate}, including activities, accommodations, and dining recommendations for each day.`
-            }],
-            max_tokens: 1000,
-        }, {
-            headers: {
-                'Content-Type': 'application/json',
-                'Authorization': `Bearer ${AI_KEY}`,
-            },
-        });
+    const options = {
+        method: 'POST',
+        url: 'https://chat-gpt26.p.rapidapi.com/',
+        headers: {
+          'x-rapidapi-key': '85099ca235msh0cfd70f603401d5p19fbc5jsn0c1d0eff6d5b',
+          'x-rapidapi-host': 'chat-gpt26.p.rapidapi.com',
+          'Content-Type': 'application/json'
+        },
+        data: {
+          model: 'gpt-3.5-turbo',
+          messages: [
+            {
+              role: 'user',
+              content: `Create a detailed trip itinerary for ${city} from ${startDate} to ${endDate}, including activities, accommodations, and dining recommendations for each day.`
+            }
+          ]
+        }
+      };
+      
+      try {
+          const response = await axios.request(options);
+          console.log(response.data);
+          console.log(response.data.choices[0].message.content);
 
-        console.log(res.data);
-        const GenPlan = res.data.choices[0].message.content;
-        console.log(GenPlan);
-    } catch (error) {
-        console.error(error);
-    }
+      } catch (error) {
+          console.error(error);
+      }
+
+
 
 }
 

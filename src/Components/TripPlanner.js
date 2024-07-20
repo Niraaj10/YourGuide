@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import { fetchTripData } from '../ApiData/ApiData'
 
 const TripPlanner = () => {
@@ -12,6 +12,8 @@ const TripPlanner = () => {
       console.error('Error Getting dataaaa', error);
     }
   }
+
+
 
 
   return (
