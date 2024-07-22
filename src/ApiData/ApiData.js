@@ -87,9 +87,62 @@ export const fetchTripData = async (city, startDate, endDate) => {
       }
 
 
-
 }
 
+
+
+export const fetchTripDataC = async (city, startDate, endDate) => {
+
+    const options = {
+        method: 'POST',
+        url: 'https://chatgpt-best-price.p.rapidapi.com/v1/chat/completions',
+        headers: {
+          'x-rapidapi-key': '85099ca235msh0cfd70f603401d5p19fbc5jsn0c1d0eff6d5b',
+          'x-rapidapi-host': 'chatgpt-best-price.p.rapidapi.com',
+          'Content-Type': 'application/json'
+        },
+        data: {
+          model: 'gpt-3.5-turbo',
+          messages: [
+            {
+              role: 'user',
+            //   content: `Create a detailed trip itinerary for ${city} from ${startDate} to ${endDate}, including activities, accommodations, and dining recommendations for each day.`
+
+              content: `Generate a detailed trip plan for ${city} from ${startDate} to ${endDate} first give 5-6 lines of description about the given city then recommend best hotels in the city like(Hotels: ....) then Include activities and restaurants with addresses and descriptions, for each day.`
+
+            //   content: `Create a detailed trip itinerary for ${city} from ${startDate} to ${endDate}, first give 5-6 lines of description about the given city then recommend 4-5 best hotels in the city like(Hotels: ....) and including 3 activities per day with specific addresses or locations and dining recommendations with addresses for each day, give the detailed location for each place along with name and description of each place and give information like this (
+            //   (Given City Name), description...
+            //   **Hotels:...
+            //   **Day 1 : 
+            //   Activities: 
+            //   Activity Name
+            //   Activity Description: ...
+            //   Activity Location: .... ,
+
+            //   Restaurants: 
+            //   Restaurant Name
+            //   Restaurant Description:...
+            //   Restaurant Location:....,
+            //   .
+            //   .
+            //   .so on....for each days
+            //   ).`
+
+            }
+          ]
+        }
+      };
+      
+      try {
+        const response = await axios.request(options);
+        // console.log(response.data);
+        console.log(response.data.choices[0].message.content);
+        return response.data.choices[0].message.content;
+      } catch (error) {
+          console.error(error);
+      }
+
+}
 
 
 
