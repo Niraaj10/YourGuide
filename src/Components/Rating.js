@@ -8,8 +8,8 @@ const Rating = () => {
 
     const RatingContent =[
         {id: '1', Ratings: '28k', svg: user, text: 'Total User', color:'#CDEDFF'},
-        {id: '2', Ratings: '12k', svg: map, text: 'Total Tour', color:'#ffeee3'},
-        {id: '3', Ratings: '64k', svg: globe, text: 'Social Likes', color:'#ffd8fb'},
+        {id: '2', Ratings: '12k', svg: map, text: 'Total Tour', color:'#ffebdf'},
+        {id: '3', Ratings: '64k', svg: globe, text: 'Social Likes', color:'#ffd7fc'},
         {id: '4', Ratings: '14k', svg: star, text: '5 Star Ratings', color:'#e0ffc8'},
     ]
 

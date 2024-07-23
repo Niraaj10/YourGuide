@@ -5,6 +5,7 @@ import ExploreP from './ExploreP'
 import Rating from './Rating'
 import Review from './Review'
 import Footer from './Footer'
+import search from '../Assests/svg/Search.svg';
 
 const Home = () => {
     return (
@@ -26,14 +27,21 @@ const Home = () => {
 
                 </div>
 
-                <div className='relative z-40 flex flex-col justify-center gap-5 mx-96 p-2 py-14 bg-white shadow-xl rounded-2xl'>
+                <div className='relative z-40 flex flex-col justify-center gap-5 mx-96 p-1 py-8 bg-white shadow-xl rounded-2xl'>
 
-                    <div className='flex justify-around'>
-                        <div><input type="text" placeholder='Search City' className='border p-2 pr-20' /></div>
-                        <div><button>Search</button></div>
+                    <div className='flex flex-col px-20 '>
+                        <div className='mb-5 font-bold text-sm'>Enter the city you want to explore</div>
+                        
+                    {/* <hr />  */}
+
+                        <div className='flex justify-center  items-center border px-5 py-2 rounded-2xl '>
+                        <input type="text" placeholder='Search City' className='outline-none focus:outline-none p-2 pr-20 w-full' />
+                        <button className='bg-[#41D6C7] p-3 rounded-full'>
+                         <img src={search} alt="" className='' />
+                        </button>
+                        </div>
                     </div>
 
-                    <hr />
                 </div>
 
 

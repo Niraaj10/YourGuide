@@ -157,8 +157,7 @@ const TripPlanner = () => {
 
 
         </div>
-
-
+        
         <Footer />
       </div>
 
