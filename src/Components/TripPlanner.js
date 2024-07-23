@@ -3,6 +3,7 @@ import { fetchTripData, fetchTripDataC } from '../ApiData/ApiData'
 import fullText from '../ApiData/Dataa';
 import search from '../Assests/svg/Search.svg';
 import BgTP from '../Assests/img/bgTP.jpg';
+import { BounceLoader } from 'react-spinners'
 
 
 
@@ -11,6 +12,8 @@ const TripPlanner = () => {
   const [cDes, setCDes] = useState('');
   const [hotels, setHotels] = useState([]);
   const [days, setDays] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
 
   const splitText = (text) => {
@@ -29,9 +32,12 @@ const TripPlanner = () => {
   };
 
   const handleClick = async () => {
+    setLoading(true)
+
     try {
       // const PlanText = await fetchTripData('Pune', '2024-08-01', '2024-08-05');
       const PlanText = await fetchTripDataC('Pune', '2024-08-01', '2024-08-05');
+      setLoading(false)
       // const { cityDescription, hotelss, PerrDayss } = splitText(PlanText);
       //   // const days = splitText(PlanText) ;
       //   setCDes(cityDescription);
@@ -54,6 +60,8 @@ const TripPlanner = () => {
 
     } catch (error) {
       console.error('Error Getting dataaaa', error);
+      setError(error);
+      setLoading(false)
     }
 
     // const { cityDescription, hotelss, perrDayss } = splitText(fullText);
@@ -102,15 +110,27 @@ const TripPlanner = () => {
                   </button>
               </div>    
             </div>
-
           </div>
         </div>
 
-        <div className='w-full mx-auto'>
+        {/* <div className='w-full mx-auto'>
           <button onClick={handleClick} className='bg-black text-white p-4 mx-auto'>Click</button>
-        </div>
+        </div> */}
 
         <div>
+
+        {loading && <>
+          <div className='mx-auto absolute top-28 left-[50%]'>
+          <BounceLoader color="#41D6C7" />
+          </div>
+          </>}
+
+          {error && 
+          <div className='mx-auto absolute top-28 left-[50%]'>
+          Sorryyy, No information found please enter valid place...
+          </div>
+          }
+
           <button onClick={handleClick}>Fetch Trip Data</button>
           <div className='mb-7'>
             <h2 className='p-5'>City Description</h2>
