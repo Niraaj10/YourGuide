@@ -15,23 +15,27 @@ const TripPlanner = () => {
   const [days, setDays] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
+  const [city, setCity] = useState('');
+  const [startD, setStartD] = useState('');
+  const [endD, setEndD] = useState('');
   const ContRef = useRef(null);
+  
 
 
-  // const splitText = (text) => {
-  //   const parts = text.split('\n\nHotels:\n');
-  //   const cityDescription = parts[0];
-  //   setCDes(cityDescription);
-  //   const hotelParts = parts[1].split('\n\nDay ');
-  //   const hotelss = hotelParts[0].trim().split(/\n(?=\d+\.\s)/);
-  //   console.log(hotelss);
+  const splitText = (text) => {
+    const parts = text.split('\n\nHotels:\n');
+    const cityDescription = parts[0];
+    setCDes(cityDescription);
+    const hotelParts = parts[1].split('\n\nDay ');
+    const hotelss = hotelParts[0].trim().split(/\n(?=\d+\.\s)/);
+    console.log(hotelss);
 
-  //   setHotels(hotelss);
-  //   const days = 'Day ' + hotelParts.slice(1).join('\n\nDay ');
-  //   const perrDayss = days.split('Day').slice(1);
-  //   setDays(perrDayss);
-  //   return { cityDescription, hotelss, perrDayss };
-  // };
+    setHotels(hotelss);
+    const days = 'Day ' + hotelParts.slice(1).join('\n\nDay ');
+    const perrDayss = days.split('Day').slice(1);
+    setDays(perrDayss);
+    return { cityDescription, hotelss, perrDayss };
+  };
 
   const handleClick = async () => {
     setLoading(true)
@@ -41,19 +45,27 @@ const TripPlanner = () => {
     }
 
     try {
-      // const PlanText = await fetchTripData('Pune', '2024-08-01', '2024-08-05');
-      const PlanText = await fetchTripDataC('Pune', '2024-08-01', '2024-08-05');
+      // const PlanText = await fetchTripData(city, startD, endD);
+      // const PlanText = await fetchTripDataC(city, startD, endD);
+      // // const PlanText = await fetchTripDataC(fullText);
+
+      // console.log(city);
+      // console.log(startD);
+      // console.log(endD);
+      
       setLoading(false)
 
-      const parts = await PlanText.split('\n\nHotels:\n');
-      const cityDescription = parts[0];
-      setCDes(cityDescription);
-      const hotelParts = parts[1].split('\n\nDay ');
-      const hotelss = hotelParts[0].trim().split(/\n(?=\d+\.\s)/);
-      setHotels(hotelss);
-      const days = 'Day ' + hotelParts.slice(1).join('\n\nDay ');
-      const perrDayss = days.split('Day').slice(1);
-      setDays(perrDayss);
+      // const parts = await PlanText.split('\n\nHotels:\n');
+      // const cityDescription = parts[0];
+      // setCDes(cityDescription);
+      // const hotelParts = parts[1].split('\n\nDay ');
+      // const hotelss = hotelParts[0].trim().split(/\n(?=\d+\.\s)/);
+      // setHotels(hotelss);
+      // const days = 'Day ' + hotelParts.slice(1).join('\n\nDay ');
+      // const perrDayss = days.split('Day').slice(1);
+      // setDays(perrDayss);\
+
+      splitText(fullText)
 
     } catch (error) {
       console.error('Error Getting dataaaa', error);
@@ -61,6 +73,13 @@ const TripPlanner = () => {
       setLoading(false)
     }
 
+  }
+
+  const ShowValue = () => {
+    console.log(city);
+    console.log(startD);
+    console.log(endD);
+    
   }
 
 
@@ -83,17 +102,20 @@ const TripPlanner = () => {
             <div></div>
             <div className='flex flex-col gap-3 bg-white px-20 py-10 border rounded-3xl shadow-xl'>
               <div className='text-sm font-bold'>Please enter your trip details</div>
+              
               <div className='border p-2 rounded-xl flex justify-center items-center'>
-                <input type="text" className='outline-none focus:outline-none w-80 pl-5' placeholder='Enter city' />
+                <input type="text" className='outline-none focus:outline-none w-80 pl-5' placeholder='Enter city' value={city} onChange={(e) => setCity(e.target.value)}/>
+
                 <div className='relative'>
                   <div className='absolute top-[-28px;] right-[41px] text-xs bg-white px-2 font-semibold text-gray-300'>End-date</div>
-                  <input type="date" name="" id="" className='outline-none focus:outline-none border-l px-2' placeholder='Enter city' />
+                  <input type="date" name="" id="" className='outline-none focus:outline-none border-l px-2' placeholder='Enter city' value={startD} onChange={(e) => setStartD(e.target.value)} />
                 </div>
 
                 <div className='relative'>
                   <div className='absolute top-[-28px;] right-[63px] text-xs bg-white px-2 font-semibold text-gray-300'>End-date</div>
-                  <input type="date" name="" id="" className='outline-none focus:outline-none border-l px-2 border-r mr-5' placeholder='Enter city' />
+                  <input type="date" name="" id="" className='outline-none focus:outline-none border-l px-2 border-r mr-5' placeholder='Enter city' value={endD} onChange={(e) => setEndD(e.target.value)}  />
                 </div>
+
                 <button onClick={handleClick} className='bg-[#41D6C7] p-3 rounded-full'>
                   <img src={search} alt="" className='' />
                 </button>
@@ -120,7 +142,7 @@ const TripPlanner = () => {
 
 
           {error &&
-            <div className='mx-auto absolute top-28 left-[50%]'>
+            <div className='mx-auto'>
               Sorryyy, No information found please enter valid place...
             </div>
           }
@@ -130,22 +152,22 @@ const TripPlanner = () => {
           >
 
             <div>
-                <button onClick={handleClick}>Fetch Trip Data</button>
+                <div className='mx-auto font-bold'>{city.toUpperCase} ITINERARY</div>
                 <div className='mb-7'>
-                  <h2 className='p-5'>City Description</h2>
+                  <h2 className='p-5'>Your trip to {city} for {days.length} days</h2>
                   <p>{cDes}</p>
                 </div>
                 <div className='mb-7'>
-                  <h2>Hotels</h2>
+                  <h2>Places to stay</h2>
                   <p>{hotels.map((hot, index) => (
                     <li key={index}>{hot}</li>
                   ))}</p>
                 </div>
                 <div className='mb-7'>
-                  <h2>Days</h2>
+                  {/* <h2>Days</h2> */}
                   <ul>
                     {days.map((day, index) => (
-                      <li key={index}>{day}</li>
+                      <li key={index}>Day{day}</li>
                     ))}
                   </ul>
                 </div>
