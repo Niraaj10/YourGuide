@@ -158,12 +158,12 @@ const TripPlanner = () => {
               <div className='basis-[60%]'>
 
                 <div className='mb-7'>
-                  <h2 className='p-5'>Your trip to {city} for {days.length} days</h2>
-                  <p>{cDes}</p>
+                  <h2 className='text-xl font-bold'>Your trip to {city} <span className='text-[#41D6C7] text-2xl'>Pune</span> for {days.length} days</h2>
+                  <p className='p-5'>{cDes}</p>
                 </div>
 
                 <div className='mb-7'>
-                  <h2>Places to stay</h2>
+                  <h2 className='text-md m-2 font-bold pl-4'>Best hotels in {city}</h2>
                   <p>{hotels.map((hot, index) => (
                     <li key={index}>{hot}</li>
                   ))}</p>
