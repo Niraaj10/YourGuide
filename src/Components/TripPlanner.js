@@ -19,7 +19,7 @@ const TripPlanner = () => {
   const [startD, setStartD] = useState('');
   const [endD, setEndD] = useState('');
   const ContRef = useRef(null);
-  
+
 
 
   const splitText = (text) => {
@@ -52,7 +52,7 @@ const TripPlanner = () => {
       // console.log(city);
       // console.log(startD);
       // console.log(endD);
-      
+
       setLoading(false)
 
       // const parts = await PlanText.split('\n\nHotels:\n');
@@ -79,7 +79,7 @@ const TripPlanner = () => {
     console.log(city);
     console.log(startD);
     console.log(endD);
-    
+
   }
 
 
@@ -102,9 +102,9 @@ const TripPlanner = () => {
             <div></div>
             <div className='flex flex-col gap-3 bg-white px-20 py-10 border rounded-3xl shadow-xl'>
               <div className='text-sm font-bold'>Please enter your trip details</div>
-              
+
               <div className='border p-2 rounded-xl flex justify-center items-center'>
-                <input type="text" className='outline-none focus:outline-none w-80 pl-5' placeholder='Enter city' value={city} onChange={(e) => setCity(e.target.value)}/>
+                <input type="text" className='outline-none focus:outline-none w-80 pl-5' placeholder='Enter city' value={city} onChange={(e) => setCity(e.target.value)} />
 
                 <div className='relative'>
                   <div className='absolute top-[-28px;] right-[41px] text-xs bg-white px-2 font-semibold text-gray-300'>End-date</div>
@@ -113,7 +113,7 @@ const TripPlanner = () => {
 
                 <div className='relative'>
                   <div className='absolute top-[-28px;] right-[63px] text-xs bg-white px-2 font-semibold text-gray-300'>End-date</div>
-                  <input type="date" name="" id="" className='outline-none focus:outline-none border-l px-2 border-r mr-5' placeholder='Enter city' value={endD} onChange={(e) => setEndD(e.target.value)}  />
+                  <input type="date" name="" id="" className='outline-none focus:outline-none border-l px-2 border-r mr-5' placeholder='Enter city' value={endD} onChange={(e) => setEndD(e.target.value)} />
                 </div>
 
                 <button onClick={handleClick} className='bg-[#41D6C7] p-3 rounded-full'>
@@ -148,38 +148,55 @@ const TripPlanner = () => {
           }
 
           <div
-          className={` ${cDes === '' ? 'invisible' : 'visible'} `}
+            className={`${cDes === '' ? 'invisible' : 'visible'} `}
           >
 
-            <div>
-                <div className='mx-auto font-bold'>{city.toUpperCase} ITINERARY</div>
+<div className='font-bold flex justify-center items-center my-9 text-xl'>{city.toUpperCase} ITINERARY</div>
+            <div className='flex gap-8'>
+
+              <div className='basis-[60%]'>
+
                 <div className='mb-7'>
                   <h2 className='p-5'>Your trip to {city} for {days.length} days</h2>
                   <p>{cDes}</p>
                 </div>
+
                 <div className='mb-7'>
                   <h2>Places to stay</h2>
                   <p>{hotels.map((hot, index) => (
                     <li key={index}>{hot}</li>
                   ))}</p>
                 </div>
+
                 <div className='mb-7'>
                   {/* <h2>Days</h2> */}
                   <ul>
                     {days.map((day, index) => (
-                      <li key={index}>Day{day}</li>
+                      <li key={index}>Day {index + 1}
+                        <div>
+                          {day}
+                        </div>
+                      </li>
                     ))}
                   </ul>
                 </div>
+                
+              </div>
+
+              <div className='basis-[40%]'>
+                    Mapppppp
+              </div>
+
+
             </div>
           </div>
-          
+
 
 
 
 
         </div>
-        
+
         <Footer />
       </div>
 
