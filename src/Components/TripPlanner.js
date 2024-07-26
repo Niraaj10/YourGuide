@@ -48,6 +48,8 @@ const TripPlanner = () => {
   };
 
   const handleClick = async () => {
+    console.log(days.length);
+    
     setLoading(true)
 
     if (ContRef.current) {
@@ -184,16 +186,21 @@ const TripPlanner = () => {
                     {days.map((day, index) => (
                       <>                      
                       <li key={index}>
-                        <div className='pl-10 text-sm font-bold m-3 flex justify-between items-center' onClick={() => Collps(index)}>
+                        <div className='mx-12 text-sm font-bold m-3 mr-20 border rounded-3xl p-2 flex justify-between items-center' onClick={() => Collps(index)}>
                           Day {index + 1}
                           <img src={down} alt="" />
                         </div>
 
+                        
+
                         <div className='flex'>
                           <div className='mb-5'>
                           <div className=' m-1 p-1 px-[11px] bg-[#41D6C7] text-white rounded-full'>{index+1}</div>
+                        { days.length === index+1 ? <><div className='border-none'> </div></> : <>
                           <div className='border-r-2 h-full w-[50%] border-[#41D6C7]'> </div>
-                          </div>
+                        </> }
+                        </div>
+                          
 
                         {
                           isOpen[index] && (
