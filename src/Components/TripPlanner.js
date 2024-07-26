@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import { fetchTripData, fetchTripDataC } from '../ApiData/ApiData'
 import fullText from '../ApiData/Dataa';
 import search from '../Assests/svg/Search.svg';
+import down from '../Assests/svg/down.svg';
 import BgTP from '../Assests/img/bgTP.jpg';
 import { BounceLoader } from 'react-spinners'
 import Footer from './Footer';
@@ -172,15 +173,29 @@ const TripPlanner = () => {
                   {/* <h2>Days</h2> */}
                   <ul>
                     {days.map((day, index) => (
-                      <li key={index}>Day {index + 1}
-                        <div>
-                          {day}
+                      <>                      
+                      <li key={index}>
+                        <div className='pl-10 text-sm font-bold m-3 flex justify-between items-center'>
+                          Day {index + 1}
+                          <img src={down} alt="" />
+                        </div>
+
+                        <div className='flex'>
+                          <div className='mb-5'>
+                          <div className=' m-1 p-1 px-[11px] bg-[#41D6C7] text-white rounded-full'>{index+1}</div>
+                          <div className='border-r-2 h-full w-[50%] border-[#41D6C7]'> </div>
+                          </div>
+
+                          <div>
+                            {day}
+                          </div>
                         </div>
                       </li>
+                      </>
                     ))}
                   </ul>
                 </div>
-                
+
               </div>
 
               <div className='basis-[40%]'>
