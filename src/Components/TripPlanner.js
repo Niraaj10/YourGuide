@@ -20,10 +20,14 @@ const TripPlanner = () => {
   const [startD, setStartD] = useState('');
   const [endD, setEndD] = useState('');
   const ContRef = useRef(null);
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState({});
 
-  const Collps = () => {
-    setIsOpen(!isOpen);
+  const Collps = (index) => {
+
+    setIsOpen((dayDivv) => ({
+      ...dayDivv,
+      [index]: !dayDivv[index],
+    }));
   }
 
 
@@ -180,7 +184,7 @@ const TripPlanner = () => {
                     {days.map((day, index) => (
                       <>                      
                       <li key={index}>
-                        <div className='pl-10 text-sm font-bold m-3 flex justify-between items-center' onClick={Collps}>
+                        <div className='pl-10 text-sm font-bold m-3 flex justify-between items-center' onClick={() => Collps(index)}>
                           Day {index + 1}
                           <img src={down} alt="" />
                         </div>
@@ -192,7 +196,7 @@ const TripPlanner = () => {
                           </div>
 
                         {
-                          isOpen && (
+                          isOpen[index] && (
                           <div>
                             {day}
                           </div>
