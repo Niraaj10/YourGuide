@@ -15,9 +15,7 @@ const App = () => {
       <div>
         {/* Your Guide */}
 
-        <Navbar/>
-        {/* <BrowserRouter> */}
-        
+        <Navbar/>      
 
         <Routes>
 
@@ -31,10 +29,6 @@ const App = () => {
 
 
         </Routes>
-        
-        
-        
-        {/* </BrowserRouter> */}
 
       </div>
     </>

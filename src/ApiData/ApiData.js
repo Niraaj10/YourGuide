@@ -223,39 +223,6 @@ export const getPhotos = async (place) => {
 //   }
 // };
 
-// const fetchPhotos = async (businessId) => {
-//   if (!businessId) return;
-  
-//   const options = {
-//     method: 'GET',
-//     url: `https://maps-data.p.rapidapi.com/photos.php`,
-//     params: { business_id: businessId, lang: 'en', country: 'india' },
-//     headers: {
-//       'x-rapidapi-key': API_KEY,
-//       'x-rapidapi-host': 'maps-data.p.rapidapi.com',
-//     },
-//   };
-
-//   try {
-//     const response = await axios.request(options);
-//     // setPhotos(response.data.photos || []); // Adjust based on the API response structure
-//     console.log(response.data.photos);
-    
-//   } catch (err) {
-//     // setError('Error fetching photos');
-//     console.error('Error fetching photos',err);
-//   }
-// };
-
- 
-// export const getPhotos = async (placeName) => {
-//   // setError('');
-//   // setPhotos([]);
-//   const businessId = await fetchBusinessId(placeName);
-//   if (businessId) {
-//     fetchPhotos(businessId);
-//   }
-// };
 
 
 
