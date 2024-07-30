@@ -20,7 +20,10 @@ const TripPlanner = () => {
   const [startD, setStartD] = useState('');
   const [endD, setEndD] = useState('');
   const ContRef = useRef(null);
-  const [isOpen, setIsOpen] = useState({});
+  const [isOpen, setIsOpen] = useState({
+    0: true
+  });
+  // const [isOpen, setIsOpen] = useState(0);
 
   const Collps = (index) => {
 
@@ -28,6 +31,8 @@ const TripPlanner = () => {
       ...dayDivv,
       [index]: !dayDivv[index],
     }));
+    console.log(isOpen);
+    
   }
 
 
