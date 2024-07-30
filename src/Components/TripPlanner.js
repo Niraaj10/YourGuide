@@ -3,6 +3,7 @@ import { fetchTripData, fetchTripDataC } from '../ApiData/ApiData'
 import fullText from '../ApiData/Dataa';
 import search from '../Assests/svg/Search.svg';
 import down from '../Assests/svg/down.svg';
+import MMap from '../Assests/svg/MagicMap.svg'
 import BgTP from '../Assests/img/bgTP.jpg';
 import { BounceLoader } from 'react-spinners'
 import Footer from './Footer';
@@ -175,6 +176,10 @@ const TripPlanner = () => {
               <div className='basis-[60%] overflow-y-scroll scroll-smooth no-scrollbar'>
 
                 <div className='mb-7'>
+                  <div className='mb text-[10px] text-gray-400 flex gap-1 items-center'>
+                    <div className='bg-[#41D6C7] p-1 rounded-full w-[25px]'><img src={MMap} alt="" /></div>
+                    This trip is powered by AI
+                  </div>
                   <h2 className='text-xl font-bold'>Your trip to {city} <span className='text-[#41D6C7] text-2xl'>Pune</span> for {days.length} days</h2>
                   <p className='p-5'>{cDes}</p>
                 </div>
