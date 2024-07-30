@@ -6,6 +6,7 @@ import down from '../Assests/svg/down.svg';
 import BgTP from '../Assests/img/bgTP.jpg';
 import { BounceLoader } from 'react-spinners'
 import Footer from './Footer';
+import Mapp from './Mapp';
 
 
 
@@ -32,7 +33,7 @@ const TripPlanner = () => {
       [index]: !dayDivv[index],
     }));
     console.log(isOpen);
-    
+
   }
 
 
@@ -54,7 +55,7 @@ const TripPlanner = () => {
 
   const handleClick = async () => {
     console.log(days.length);
-    
+
     setLoading(true)
 
     if (ContRef.current) {
@@ -168,10 +169,10 @@ const TripPlanner = () => {
             className={`${cDes === '' ? 'invisible' : 'visible'} `}
           >
 
-<div className='font-bold flex justify-center items-center my-9 text-xl'>{city.toUpperCase} ITINERARY</div>
-            <div className='flex gap-8'>
+            <div className='font-bold flex justify-center items-center my-9 text-xl'>{city.toUpperCase} ITINERARY</div>
+            <div className='flex gap-8  h-[70vh]'>
 
-              <div className='basis-[60%]'>
+              <div className='basis-[60%] overflow-y-scroll scroll-smooth no-scrollbar'>
 
                 <div className='mb-7'>
                   <h2 className='text-xl font-bold'>Your trip to {city} <span className='text-[#41D6C7] text-2xl'>Pune</span> for {days.length} days</h2>
@@ -189,10 +190,10 @@ const TripPlanner = () => {
                   {/* <h2>Days</h2> */}
                   <ul>
                     {days.map((day, index) => (
-                      <>                      
-                      <li key={index}>
-                        <div className='flex justify-center'>
-                          {/* <div className='mb-5'>
+                      <>
+                        <li key={index}>
+                          <div className='flex justify-center'>
+                            {/* <div className='mb-5'>
                               <div className='m-1 p-1 px-[11px] bg-[#41D6C7] text-white rounded-full'>{index+1}
                               </div>
                               { days.length === index+1 ? <><div className='border-none'> </div></> : <>
@@ -200,34 +201,34 @@ const TripPlanner = () => {
                               </> }
                           </div> */}
 
-                          <div className='mx-12 mt-[-1px] text-sm font-bold m-3 mr-20 border rounded-3xl p-2 flex justify-between items-center w-full h-10' onClick={() => Collps(index)}>
-                            Day {index + 1}
-                            <img src={down} alt="" />
-                          </div>
-                        </div>
-
-                        
-
-                        <div className='flex '>
-                          <div className=''>
-                            <div className='mt-[-48px] m-1 p-1 px-[11px] bg-[#41D6C7] text-white rounded-full'>{index+1}
+                            <div className='mx-12 mt-[-1px] text-sm font-bold m-3 mr-20 border rounded-3xl p-2 flex justify-between items-center w-full h-10' onClick={() => Collps(index)}>
+                              Day {index + 1}
+                              <img src={down} alt="" />
                             </div>
-                            { days.length === index+1 ? <><div className='border-none'> </div></> : <>
-                              <div className='border-r-2 h-full w-[50%] border-[#41D6C7]'> </div>
-                            </> }
                           </div>
-                          
 
-                          {
-                            isOpen[index] && (
-                            <div className='ml-6 mr-20 mb-6'>
-                              {day}
+
+
+                          <div className='flex '>
+                            <div className=''>
+                              <div className='mt-[-48px] m-1 p-1 px-[11px] bg-[#41D6C7] text-white rounded-full'>{index + 1}
+                              </div>
+                              {days.length === index + 1 ? <><div className='border-none'> </div></> : <>
+                                <div className='border-r-2 h-full w-[50%] border-[#41D6C7]'> </div>
+                              </>}
                             </div>
 
-                            )
-                          }
-                        </div>
-                      </li>
+
+                            {
+                              isOpen[index] && (
+                                <div className='ml-6 mr-20 mb-6'>
+                                  {day}
+                                </div>
+
+                              )
+                            }
+                          </div>
+                        </li>
                       </>
                     ))}
                   </ul>
@@ -236,7 +237,8 @@ const TripPlanner = () => {
               </div>
 
               <div className='basis-[40%]'>
-                    Mapppppp
+                {/* Mapppppp */}
+                <Mapp />
               </div>
 
 
