@@ -191,30 +191,41 @@ const TripPlanner = () => {
                     {days.map((day, index) => (
                       <>                      
                       <li key={index}>
-                        <div className='mx-12 text-sm font-bold m-3 mr-20 border rounded-3xl p-2 flex justify-between items-center' onClick={() => Collps(index)}>
-                          Day {index + 1}
-                          <img src={down} alt="" />
+                        <div className='flex justify-center'>
+                          {/* <div className='mb-5'>
+                              <div className='m-1 p-1 px-[11px] bg-[#41D6C7] text-white rounded-full'>{index+1}
+                              </div>
+                              { days.length === index+1 ? <><div className='border-none'> </div></> : <>
+                                <div className='border-r-2 h-full w-[50%] border-[#41D6C7]'> </div>
+                              </> }
+                          </div> */}
+
+                          <div className='mx-12 mt-[-1px] text-sm font-bold m-3 mr-20 border rounded-3xl p-2 flex justify-between items-center w-full h-10' onClick={() => Collps(index)}>
+                            Day {index + 1}
+                            <img src={down} alt="" />
+                          </div>
                         </div>
 
                         
 
-                        <div className='flex'>
-                          <div className='mb-5'>
-                          <div className=' m-1 p-1 px-[11px] bg-[#41D6C7] text-white rounded-full'>{index+1}</div>
-                        { days.length === index+1 ? <><div className='border-none'> </div></> : <>
-                          <div className='border-r-2 h-full w-[50%] border-[#41D6C7]'> </div>
-                        </> }
-                        </div>
+                        <div className='flex '>
+                          <div className=''>
+                            <div className='mt-[-48px] m-1 p-1 px-[11px] bg-[#41D6C7] text-white rounded-full'>{index+1}
+                            </div>
+                            { days.length === index+1 ? <><div className='border-none'> </div></> : <>
+                              <div className='border-r-2 h-full w-[50%] border-[#41D6C7]'> </div>
+                            </> }
+                          </div>
                           
 
-                        {
-                          isOpen[index] && (
-                          <div>
-                            {day}
-                          </div>
+                          {
+                            isOpen[index] && (
+                            <div className='ml-6 mr-20 mb-6'>
+                              {day}
+                            </div>
 
-                          )
-                        }
+                            )
+                          }
                         </div>
                       </li>
                       </>
