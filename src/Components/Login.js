@@ -21,9 +21,21 @@ const Login = () => {
 
       </div>
 
-      <div className=' mt-9 relative z-10 h-[74vh] w-[35vw] border bg-white rounded-3xl'>
+      <div className=' mt-9 relative z-10 h-[74vh] w-[35vw] border bg-white rounded-3xl flex flex-col justify-center items-center'>
 
+        <div className='text-xl flex flex-col items-center justify-center'>
+          Hello, Buddyy!
+          <div className='text-sm'>
+            Enter your personal details and start your journey with us
+          </div>
 
+          <form action="" className='flex flex-col mt-12'>
+            <div>Username</div>
+            <input type="text" />
+            <div>Password</div>
+            <input type="Passwors" />
+          </form>
+        </div>
         Login
       </div>
 
