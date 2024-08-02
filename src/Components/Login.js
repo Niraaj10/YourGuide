@@ -1,9 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Bg from '../Assests/img/LoginBg.jpg'
 
 const Login = () => {
+const [form, setForm] = useState('Signup');
 
-  
+const changeForm = () => {
+  if (form === 'Signup') {
+    setForm('Login')
+  }
+}
+console.log(form);
+
+
+
   return (
     <>
       <div>
@@ -25,7 +34,7 @@ const Login = () => {
 
           <div className=' mt-9 relative z-10 h-[74vh] w-[35vw] border bg-white rounded-3xl flex flex-col justify-center items-center'>
 
-            <div className='Signup hidden'> 
+            <div className={`Signup ${form === 'Signup' ? '' : 'hidden'}`}> 
               <div className='text-xl flex flex-col font-semibold items-center justify-center'>
                 Hello, Buddyy!
                 <div className='text-xs mt-2 w-[300px]'>
@@ -49,7 +58,7 @@ const Login = () => {
 
                 <div className='text-sm mt-5'>
                   Already have an account? 
-                  <button className='ml-2 font-bold text-[#41D6C7]'>
+                  <button onClick={changeForm} className='ml-2 font-bold text-[#41D6C7]'>
                      Login
                   </button>
                 </div>
@@ -59,7 +68,7 @@ const Login = () => {
 
 
 
-            <div className='Login '> 
+            <div className={`Login ${form === 'Login' ? '' : 'hidden'}`}> 
               <div className='text-xl flex flex-col font-semibold items-center justify-center'>
                 Welcome Backk!
                 <div className='text-xs mt-2 w-[300px]'>
@@ -80,7 +89,7 @@ const Login = () => {
 
                 <div className='text-sm mt-5'>
                   Don't have an account? 
-                  <button className='ml-2 font-bold text-[#41D6C7]'>
+                  <button onClick={() => {form === 'Signup' ? setForm('Login') : setForm('Signup')}} className='ml-2 font-bold text-[#41D6C7]'>
                      Signup
                   </button>
                 </div>
