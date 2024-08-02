@@ -9,7 +9,7 @@ const changeForm = () => {
     setForm('Login')
   }
 }
-console.log(form);
+// console.log(form);
 
 
 
