@@ -19,11 +19,11 @@ const Navbar = () => {
               <Link to="/about"><div>About Us</div></Link>
             </div>
             <div className='flex gap-5 font-bold'>
-              <Link to="/login"><button className='p-2 px-5  rounded-full shadow-md'>
+              {/* <Link to="/login"><button className='p-2 px-5  rounded-full shadow-md'>
                 Login
-              </button></Link>
+              </button></Link> */}
               <Link to="/login"><button className='p-2 px-5  rounded-full bg-[#41D6C7] text-white shadow-md'>
-                Sign up
+                Login / Sign up
               </button></Link>
             </div>
           </div>
