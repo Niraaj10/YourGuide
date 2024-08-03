@@ -2,6 +2,9 @@ import React, { useState } from 'react'
 import Bg from '../Assests/img/LoginBg.jpg'
 
 const Login = () => {
+  const [Username, setUsername] = useState('');
+  const [Email, setEmail] = useState('');
+  const [Password, setPassword] = useState('');
 const [form, setForm] = useState('Signup');
 
 const changeForm = () => {
@@ -10,6 +13,11 @@ const changeForm = () => {
   }
 }
 // console.log(form);
+
+
+const userData = () => {
+
+}
 
 
 

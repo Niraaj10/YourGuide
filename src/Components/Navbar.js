@@ -11,19 +11,21 @@ const Navbar = () => {
             <div className='pr-32'>
               <Link to="/"><h2 className='fig text-5xl top-3 text-[#41D6C7] font-extrabold'>YourGuide.</h2></Link>
             </div>
-            <div className='flex gap-24 font-semibold text-gray-500 '>
+
+            <div className='flex gap-24 font-semibold text-gray-700 ml-24'>
 
               <Link to="/explore"><div>Explore</div></Link>
               <Link to="/tripPlanner"><div>Trip planner</div></Link>
               {/* <Link to="/blog"><div>Blog</div></Link> */}
               <Link to="/about"><div>About Us</div></Link>
             </div>
+
             <div className='flex gap-5 font-bold'>
               {/* <Link to="/login"><button className='p-2 px-5  rounded-full shadow-md'>
                 Login
               </button></Link> */}
               <Link to="/login"><button className='p-2 px-5  rounded-full bg-[#41D6C7] text-white shadow-md'>
-                Login / Sign up
+                Login /Sign up
               </button></Link>
             </div>
           </div>
