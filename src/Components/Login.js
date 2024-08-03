@@ -5,6 +5,7 @@ const Login = () => {
   const [Username, setUsername] = useState('');
   const [Email, setEmail] = useState('');
   const [Password, setPassword] = useState('');
+  const [conPass, setConPass] = useState('');
 const [form, setForm] = useState('Signup');
 
 const changeForm = () => {
@@ -15,8 +16,13 @@ const changeForm = () => {
 // console.log(form);
 
 
-const userData = () => {
-
+const userData = (e) => {
+    e.preventDefault();
+    console.log(Username);
+    console.log(Email);
+    console.log(Password);
+    console.log(conPass);
+    
 }
 
 
@@ -49,15 +55,15 @@ const userData = () => {
                   Enter your personal details and start your journey with us
                 </div>
 
-                <form action="" className='flex flex-col mt-10'>
+                <form action={userData} onSubmit={userData} className='flex flex-col mt-10'>
                   <div className='mb-1 text-xs font-bold'>Username</div>
-                  <input type="text" className='border mb-5 rounded-lg px-3 py-2 w-[300px] text-sm '/>
+                  <input type="text" className='border mb-5 rounded-lg px-3 py-2 w-[300px] text-sm ' onClick={(e) => {setUsername(e.target.value)}}/>
                   <div className='mb-1 text-xs font-bold'>Email</div>
-                  <input type="text" className='border mb-5 rounded-lg px-3 py-2 w-[300px] text-sm '/>
+                  <input type="text" className='border mb-5 rounded-lg px-3 py-2 w-[300px] text-sm ' onClick={(e) => {setEmail(e.target.value)}}/>
                   <div className='mb-1 text-xs font-bold'>Password</div>
-                  <input type="Password" className='border mb-5 rounded-lg px-3 py-2 w-[300px] text-sm '/>
+                  <input type="Password" className='border mb-5 rounded-lg px-3 py-2 w-[300px] text-sm ' onClick={(e) => {setPassword(e.target.value)}}/>
                   <div className='mb-1 text-xs font-bold'>Confirm Password</div>
-                  <input type="Password" className='border mb-5 rounded-lg px-3 py-2 w-[300px] text-sm '/>
+                  <input type="Password" className='border mb-5 rounded-lg px-3 py-2 w-[300px] text-sm ' onClick={(e) => {setConPass(e.target.value)}}/>
 
                   <button className='w-[300px] border rounded-lg text-sm font-bold text-white bg-[#41D6C7] py-2'>
                     Signup
