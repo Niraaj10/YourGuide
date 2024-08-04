@@ -1,10 +1,12 @@
 import React, { useState } from 'react'
 import Bg from '../Assests/img/LoginBg.jpg'
+import axios from 'axios';
 
 const Login = () => {
-  const [Username, setUsername] = useState('');
-  const [Email, setEmail] = useState('');
-  const [Password, setPassword] = useState('');
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [ppass, setPpass] = useState('');
   const [conPass, setConPass] = useState('');
 const [form, setForm] = useState('Signup');
 
@@ -16,12 +18,45 @@ const changeForm = () => {
 // console.log(form);
 
 
-const userData = (e) => {
+
+
+const userData = async (e) => {
     e.preventDefault();
-    console.log(Username);
-    console.log(Email);
-    console.log(Password);
-    console.log(conPass);
+    if (ppass === conPass) {
+      setPassword(ppass);
+    }
+    console.log(username);
+    console.log(email);
+    console.log(password);
+    // console.log(conPass);
+
+    
+    
+    try {
+      const res = await axios.get('/userData.json');
+      const users = res.data;
+      const newUser = {
+        id: users.length+1,
+        username,
+        email,
+        password,
+      };
+
+      users.push(newUser);
+      
+      console.log(users.length)
+      console.log(users);
+
+      //Clear
+      setUsername('');
+      setEmail('');
+      setPassword('')
+      
+    } catch (error) {
+      console.error('Error updating user data:', error);
+    }
+
+
     
 }
 
@@ -57,13 +92,13 @@ const userData = (e) => {
 
                 <form action={userData} onSubmit={userData} className='flex flex-col mt-10'>
                   <div className='mb-1 text-xs font-bold'>Username</div>
-                  <input type="text" className='border mb-5 rounded-lg px-3 py-2 w-[300px] text-sm ' onClick={(e) => {setUsername(e.target.value)}}/>
+                  <input type="text" className='border mb-5 rounded-lg px-3 py-2 w-[300px] text-sm ' onChange={(e) => setUsername(e.target.value)}/>
                   <div className='mb-1 text-xs font-bold'>Email</div>
-                  <input type="text" className='border mb-5 rounded-lg px-3 py-2 w-[300px] text-sm ' onClick={(e) => {setEmail(e.target.value)}}/>
+                  <input type="text" className='border mb-5 rounded-lg px-3 py-2 w-[300px] text-sm ' onChange={(e) => setEmail(e.target.value)}/>
                   <div className='mb-1 text-xs font-bold'>Password</div>
-                  <input type="Password" className='border mb-5 rounded-lg px-3 py-2 w-[300px] text-sm ' onClick={(e) => {setPassword(e.target.value)}}/>
+                  <input type="Password" className='border mb-5 rounded-lg px-3 py-2 w-[300px] text-sm ' onChange={(e) => setPpass(e.target.value)}/>
                   <div className='mb-1 text-xs font-bold'>Confirm Password</div>
-                  <input type="Password" className='border mb-5 rounded-lg px-3 py-2 w-[300px] text-sm ' onClick={(e) => {setConPass(e.target.value)}}/>
+                  <input type="Password" className='border mb-5 rounded-lg px-3 py-2 w-[300px] text-sm ' onChange={(e) => setConPass(e.target.value)}/>
 
                   <button className='w-[300px] border rounded-lg text-sm font-bold text-white bg-[#41D6C7] py-2'>
                     Signup
