@@ -9,6 +9,7 @@ const Login = () => {
   const [ppass, setPpass] = useState('');
   const [conPass, setConPass] = useState('');
 const [form, setForm] = useState('Signup');
+const [errorMessage, setErrorMessage] = useState('');
 
 const changeForm = () => {
   if (form === 'Signup') {
@@ -24,6 +25,9 @@ const userData = async (e) => {
     e.preventDefault();
     if (ppass === conPass) {
       setPassword(ppass);
+      setErrorMessage('')
+    } else {
+      setErrorMessage('Password does not match')
     }
     console.log(username);
     console.log(email);
@@ -99,6 +103,7 @@ const userData = async (e) => {
                   <input type="Password" className='border mb-5 rounded-lg px-3 py-2 w-[300px] text-sm ' onChange={(e) => setPpass(e.target.value)}/>
                   <div className='mb-1 text-xs font-bold'>Confirm Password</div>
                   <input type="Password" className='border mb-5 rounded-lg px-3 py-2 w-[300px] text-sm ' onChange={(e) => setConPass(e.target.value)}/>
+                  {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
 
                   <button className='w-[300px] border rounded-lg text-sm font-bold text-white bg-[#41D6C7] py-2'>
                     Signup
