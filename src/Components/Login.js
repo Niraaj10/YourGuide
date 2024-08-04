@@ -22,7 +22,7 @@ const changeForm = () => {
 
 
 const userData = async (e) => {
-    e.preventDefault();
+  e.preventDefault();
     if (ppass === conPass) {
       setPassword(ppass);
       setErrorMessage('')
@@ -38,7 +38,10 @@ const userData = async (e) => {
     
     
     try {
-      const res = await axios.get('/userData.json');
+      // const res = await axios.get('/userData.json');
+      const res = await axios.get('http://localhost:3001/users');
+      console.log(res);
+      
       const users = res.data;
       const newUser = {
         id: users.length+1,
@@ -47,7 +50,9 @@ const userData = async (e) => {
         password: ppass,
       };
 
-      users.push(newUser);
+      // users.push(newUser);
+      await axios.post('http://localhost:3001/users', newUser);
+      // await axios.post('/userData.json', newUser);
       
       console.log(users.length)
       console.log(users);
