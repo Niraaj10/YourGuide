@@ -8,8 +8,8 @@ const Login = () => {
   const [password, setPassword] = useState('');
   const [ppass, setPpass] = useState('');
   const [conPass, setConPass] = useState('');
-const [form, setForm] = useState('Signup');
-const [errorMessage, setErrorMessage] = useState('');
+  const [form, setForm] = useState('Signup');
+  const [errorMessage, setErrorMessage] = useState('');
 
 const changeForm = () => {
   if (form === 'Signup') {
@@ -29,6 +29,7 @@ const userData = async (e) => {
     } else {
       setErrorMessage('Password does not match')
     }
+
     console.log(username);
     console.log(email);
     console.log(password);
@@ -43,7 +44,7 @@ const userData = async (e) => {
         id: users.length+1,
         username,
         email,
-        password,
+        password: ppass,
       };
 
       users.push(newUser);
@@ -96,13 +97,13 @@ const userData = async (e) => {
 
                 <form action={userData} onSubmit={userData} className='flex flex-col mt-10'>
                   <div className='mb-1 text-xs font-bold'>Username</div>
-                  <input type="text" className='border mb-5 rounded-lg px-3 py-2 w-[300px] text-sm ' onChange={(e) => setUsername(e.target.value)}/>
+                  <input type="text" value={username} className='border mb-5 rounded-lg px-3 py-2 w-[300px] text-sm ' onChange={(e) => setUsername(e.target.value)}/>
                   <div className='mb-1 text-xs font-bold'>Email</div>
-                  <input type="text" className='border mb-5 rounded-lg px-3 py-2 w-[300px] text-sm ' onChange={(e) => setEmail(e.target.value)}/>
+                  <input type="text" value={email} className='border mb-5 rounded-lg px-3 py-2 w-[300px] text-sm ' onChange={(e) => setEmail(e.target.value)}/>
                   <div className='mb-1 text-xs font-bold'>Password</div>
-                  <input type="Password" className='border mb-5 rounded-lg px-3 py-2 w-[300px] text-sm ' onChange={(e) => setPpass(e.target.value)}/>
+                  <input type="Password" value={ppass} className='border mb-5 rounded-lg px-3 py-2 w-[300px] text-sm ' onChange={(e) => setPpass(e.target.value)}/>
                   <div className='mb-1 text-xs font-bold'>Confirm Password</div>
-                  <input type="Password" className='border mb-5 rounded-lg px-3 py-2 w-[300px] text-sm ' onChange={(e) => setConPass(e.target.value)}/>
+                  <input type="Password" value={conPass} className='border mb-5 rounded-lg px-3 py-2 w-[300px] text-sm ' onChange={(e) => setConPass(e.target.value)}/>
                   {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
 
                   <button className='w-[300px] border rounded-lg text-sm font-bold text-white bg-[#41D6C7] py-2'>
