@@ -28,10 +28,16 @@
       "password": "123"
     },
     {
-      "id": 5,
+      "id": "5",
       "username": "nisdfn",
       "email": "finidf@gmail.com",
       "password": "Pass"
+    },
+    {
+      "id": 6,
+      "username": "cutiee",
+      "email": "nkansa@gmail.com",
+      "password": "123"
     }
   ]
 }

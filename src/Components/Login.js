@@ -56,6 +56,8 @@ const userData = async (e) => {
       // users.push(newUser);
       await axios.post('http://localhost:3001/users', newUser);
       // await axios.post('/userData.json', newUser);
+
+      localStorage.setItem('loggedUser', JSON.stringify(newUser));
       
       console.log(users.length)
       console.log(users);
@@ -75,8 +77,7 @@ useEffect(() => {
   const storedUser = localStorage.getItem('loggedUser');
   if (storedUser) {
     setloggedUser(JSON.parse(storedUser));
-    console.log();
-    
+    console.log();    
   }
 }, []);
 
