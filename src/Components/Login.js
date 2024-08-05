@@ -13,6 +13,7 @@ const Login = () => {
   const [logUser, setLogUser] = useState('');
   const [logPass, setLogPass] = useState('');
   const [loggedUser, setloggedUser] = useState(null);
+  const [userrr, setUserrr] = useState([]);
 
 const changeForm = () => {
   if (form === 'Signup') {
@@ -26,6 +27,7 @@ const changeForm = () => {
 
 const userData = async (e) => {
   e.preventDefault();
+
     if (ppass === conPass) {
       setPassword(ppass);
       setErrorMessage('')
@@ -58,6 +60,7 @@ const userData = async (e) => {
       // await axios.post('/userData.json', newUser);
 
       localStorage.setItem('loggedUser', JSON.stringify(newUser));
+      setUserrr(newUser);
       
       console.log(users.length)
       console.log(users);
@@ -69,7 +72,8 @@ const userData = async (e) => {
       
     } catch (error) {
       console.error('Error updating user data:', error);
-    }    
+    }  
+      
 }
 
 
@@ -91,23 +95,28 @@ const LogInForm = async (e) => {
   try {
     const res = await axios.get('/userData.json');
     const users = res.data.users;
-    console.log(users);
+    // console.log(users);
 
     const user = users.find( (u) => 
-      u.username === logUser && u.password === logPass
+      u.username === logUser && u.password === logPass 
     );
+    setUserrr(user);
+
 
     if (user) {
-      console.log(user)
+      // console.log(user)
+      console.log(userrr)
       setloggedUser(user)
       localStorage.setItem('loggedUser', JSON.stringify(user))
       console.log('Logged In');      
-      setErrorMessage('')
-      
+      setErrorMessage('')      
+    } else {
+      setErrorMessage('Invalid username or password');
     }
     
   } catch (error) {
-    
+    console.error('Error fetching users data:', error);
+    // setErrorMessage('bfjbf')
   }
 }
 
@@ -115,6 +124,9 @@ const LogInForm = async (e) => {
 const userLogout = () => {
   setloggedUser(null);
   localStorage.removeItem('loggedUser')
+  setUserrr([])
+  console.log('Logoutttttt');
+  console.log(userrr);    
 };
 
 
@@ -190,6 +202,8 @@ const userLogout = () => {
                 
                   <div className='mb-1 text-xs font-bold'>Password</div>
                   <input onChange={(e) => setLogPass(e.target.value)} type="Password" className='border mb-9 rounded-lg px-3 py-2 w-[300px] text-sm '/>
+
+                  {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
               
                   <button className='w-[300px] border rounded-lg text-sm font-bold text-white bg-[#41D6C7] py-2'>
                     Login
