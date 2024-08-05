@@ -10,6 +10,8 @@ const Login = () => {
   const [conPass, setConPass] = useState('');
   const [form, setForm] = useState('Signup');
   const [errorMessage, setErrorMessage] = useState('');
+  const [logUser, setLogUser] = useState('');
+  const [logPass, setLogPass] = useState('');
 
 const changeForm = () => {
   if (form === 'Signup') {
@@ -64,10 +66,19 @@ const userData = async (e) => {
       
     } catch (error) {
       console.error('Error updating user data:', error);
-    }
+    }    
+}
 
 
-    
+
+const LogInForm = async (e) => {
+  e.preventDefault();
+
+  console.log(logUser);
+  console.log(logPass);
+  
+
+
 }
 
 
@@ -94,6 +105,7 @@ const userData = async (e) => {
           <div className=' mt-9 relative z-10 h-[74vh] w-[35vw] border bg-white rounded-3xl flex flex-col justify-center items-center'>
 
             <div className={`Signup ${form === 'Signup' ? '' : 'hidden'}`}> 
+              {/* Signup */}
               <div className='text-xl flex flex-col font-semibold items-center justify-center'>
                 Hello, Buddyy!
                 <div className='text-xs mt-2 w-[300px]'>
@@ -114,6 +126,7 @@ const userData = async (e) => {
                   <button className='w-[300px] border rounded-lg text-sm font-bold text-white bg-[#41D6C7] py-2'>
                     Signup
                   </button>                  
+
                 </form>
 
                 <div className='text-sm mt-5'>
@@ -123,24 +136,24 @@ const userData = async (e) => {
                   </button>
                 </div>
               </div>
-              {/* Login */}
             </div>
 
 
 
             <div className={`Login ${form === 'Login' ? '' : 'hidden'}`}> 
+              {/* Login */}
               <div className='text-xl flex flex-col font-semibold items-center justify-center'>
                 Welcome Backk!
                 <div className='text-xs mt-2 w-[300px]'>
                 To keep connected with us please login with your personal info
                 </div>
 
-                <form action="" className='flex flex-col mt-14'>
+                <form onSubmit={LogInForm} className='flex flex-col mt-14'>
                   <div className='mb-1 text-xs font-bold'>Username</div>
-                  <input type="text" className='border mb-9 rounded-lg px-3 py-2 w-[300px] text-sm '/>
+                  <input onChange={(e) => setLogUser(e.target.value)} type="text" className='border mb-9 rounded-lg px-3 py-2 w-[300px] text-sm '/>
                 
                   <div className='mb-1 text-xs font-bold'>Password</div>
-                  <input type="Password" className='border mb-9 rounded-lg px-3 py-2 w-[300px] text-sm '/>
+                  <input onChange={(e) => setLogPass(e.target.value)} type="Password" className='border mb-9 rounded-lg px-3 py-2 w-[300px] text-sm '/>
               
                   <button className='w-[300px] border rounded-lg text-sm font-bold text-white bg-[#41D6C7] py-2'>
                     Login
@@ -154,7 +167,7 @@ const userData = async (e) => {
                   </button>
                 </div>
               </div>
-              {/* Login */}
+
             </div>
 
             
