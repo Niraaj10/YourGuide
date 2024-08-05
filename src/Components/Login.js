@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Bg from '../Assests/img/LoginBg.jpg'
 import axios from 'axios';
 
@@ -12,6 +12,7 @@ const Login = () => {
   const [errorMessage, setErrorMessage] = useState('');
   const [logUser, setLogUser] = useState('');
   const [logPass, setLogPass] = useState('');
+  const [loggedUser, setloggedUser] = useState(null);
 
 const changeForm = () => {
   if (form === 'Signup') {
@@ -70,16 +71,50 @@ const userData = async (e) => {
 }
 
 
+useEffect(() => {
+  const storedUser = localStorage.getItem('loggedUser');
+  if (storedUser) {
+    setloggedUser(JSON.parse(storedUser));
+    console.log();
+    
+  }
+}, []);
+
 
 const LogInForm = async (e) => {
   e.preventDefault();
 
   console.log(logUser);
   console.log(logPass);
-  
 
+  try {
+    const res = await axios.get('/userData.json');
+    const users = res.data.users;
+    console.log(users);
 
+    const user = users.find( (u) => 
+      u.username === logUser && u.password === logPass
+    );
+
+    if (user) {
+      console.log(user)
+      setloggedUser(user)
+      localStorage.setItem('loggedUser', JSON.stringify(user))
+      console.log('Logged In');      
+      setErrorMessage('')
+      
+    }
+    
+  } catch (error) {
+    
+  }
 }
+
+
+const userLogout = () => {
+  setloggedUser(null);
+  localStorage.removeItem('loggedUser')
+};
 
 
 
@@ -171,7 +206,9 @@ const LogInForm = async (e) => {
             </div>
 
             
-
+            <div>
+              <button onClick={userLogout}>Logout</button>
+            </div>
           </div>
 
         </div>
