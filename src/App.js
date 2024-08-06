@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Home from './Components/Home'
 import Navbar from './Components/Navbar'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
@@ -10,12 +10,15 @@ import Login from './Components/Login'
 
 
 const App = () => {
+  const [userr, setUserr] = useState(null);
+  console.log(userr);
+  
   return (
     <>
       <div>
         {/* Your Guide */}
 
-        <Navbar/>      
+        <Navbar user={userr}/>      
 
         <Routes>
 
@@ -25,7 +28,7 @@ const App = () => {
           <Route path='/tripPlanner' element={<TripPlanner /> } />
           <Route path='/blog' element={<Blog />  } />
           <Route path='/about' element={<About /> } />
-          <Route path='/login' element={<Login />} />
+          <Route path='/login' element={<Login Userrr={setUserr} />} />
 
 
         </Routes>

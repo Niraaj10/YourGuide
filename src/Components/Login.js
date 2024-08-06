@@ -3,7 +3,7 @@ import Bg from '../Assests/img/LoginBg.jpg'
 import Profile from '../Assests/img/avatar/Profile.jpeg'
 import axios from 'axios';
 
-const Login = () => {
+const Login = ({ Userrr }) => {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -62,6 +62,7 @@ const userData = async (e) => {
 
       localStorage.setItem('loggedUser', JSON.stringify(newUser));
       setUserrr(newUser);
+      Userrr(newUser);
       
       console.log(users.length)
       console.log(users);
@@ -102,6 +103,7 @@ const LogInForm = async (e) => {
       u.username === logUser && u.password === logPass 
     );
     setUserrr(user);
+    Userrr(user);
 
 
     if (user) {
@@ -162,16 +164,20 @@ const userLogout = () => {
           <div>
               <button onClick={userLogout} className='bg-[#41D6C7] z-10 relative p-2 mt-9 text-white font-semibold text-sm rounded-xl px-4'>Logout</button>
           </div>
-        <div className='mt-2 relative z-10 h-[74vh] w-[35vw] border bg-white rounded-3xl flex flex-col justify-center items-center'> 
+        <div className='mt-2 relative z-10 h-[64vh] w-[30vw] border bg-white rounded-3xl flex flex-col justify-center items-center'> 
 
           {/* hiiiiii userrrrrrrrrr */}
 
           <div>
-            <img src={Profile} alt="" className='rounded-full w-24' />
+            <img src={Profile} alt="" className='rounded-full w-28' />
           </div>
 
-          <div>
-            {userrr.name}
+          <div className='font-bold m-1 mt-5 text-xl'>
+            {userrr.username}
+          </div>
+
+          <div className='font-semibold'>
+            {userrr.email}
           </div>
 
 

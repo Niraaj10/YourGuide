@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({ user }) => {
   return (
     <>
       <div>
@@ -22,10 +22,10 @@ const Navbar = () => {
 
             <div className='flex gap-5 font-bold'>
               {/* <Link to="/login"><button className='p-2 px-5  rounded-full shadow-md'>
-                Login
+              {user ? <p>Welcome, {user.username}!</p> : <p>Please log in</p>}
               </button></Link> */}
               <Link to="/login"><button className='p-2 px-5  rounded-full bg-[#41D6C7] text-white shadow-md'>
-                Login /Sign up
+              {user ? <p>Welcome, {user.username}!</p> : <p>Login / Sign up</p>}
               </button></Link>
             </div>
           </div>
