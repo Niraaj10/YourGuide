@@ -127,7 +127,8 @@ const LogInForm = async (e) => {
 const userLogout = () => {
   setloggedUser(null);
   localStorage.removeItem('loggedUser')
-  setUserrr(null)
+  setUserrr(null);
+  Userrr(null);
   console.log('Logoutttttt');
   console.log(userrr);    
 };
