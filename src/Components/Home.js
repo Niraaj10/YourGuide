@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from "react-router-dom";
 import Navbar from './Navbar'
 import bg from '../Assests/img/yash-raut--JVG6PsOrKA-unsplash.jpg'
 import ExploreP from './ExploreP'
@@ -6,8 +7,16 @@ import Rating from './Rating'
 import Review from './Review'
 import Footer from './Footer'
 import search from '../Assests/svg/Search.svg';
+import downn from '../Assests/svg/downArrow.svg';
 
 const Home = () => {
+
+    // const explore = (e) => {
+    //     e.preventDefault();
+    //     /////////////////////////
+
+    // }
+
     return (
         <>
             <div className='Home flex flex-col'>
@@ -29,10 +38,31 @@ const Home = () => {
 
                 <div className='relative z-40 flex flex-col justify-center gap-5 mx-96 p-1 py-8 bg-white shadow-xl rounded-2xl'>
 
-                    <div className='flex flex-col px-20 '>
-                        <div className='mb-5 font-bold text-sm'>Enter the city you want to explore</div>
+                    <div className='flex gap-2 items-center justify-center px-20 '>
+                        <div className=' font-bold text-sm flex gap-2 items-center'> 
+                            Want to explore places according to your desire city   »»
+                            {/* <img src={downn} alt="" />     */}
+                        </div>
                         
                     {/* <hr />  */}
+
+                        <div className='flex justify-center  items-center px-5 py-2 rounded-2xl '>
+                        {/* <input type="text" placeholder='Search City' className='outline-none focus:outline-none p-2 pr-20 w-full' />
+                        <button className='bg-[#41D6C7] p-3 rounded-full'>
+                         <img src={search} alt="" className='' />
+                        </button> */}
+                        <button className='p-2 px-5 bg-[#41D6C7] text-white rounded-xl' >
+                            {/* Explore */}
+                            <Link to="/explore"><div>Explore</div></Link>
+                        </button>
+                        
+                        </div>
+                    </div>
+
+                    {/* <div className='flex flex-col px-20 '>
+                        <div className='mb-5 font-bold text-sm'>Enter the city you want to explore</div>
+                        
+                    <hr /> 
 
                         <div className='flex justify-center  items-center border px-5 py-2 rounded-2xl '>
                         <input type="text" placeholder='Search City' className='outline-none focus:outline-none p-2 pr-20 w-full' />
@@ -40,7 +70,7 @@ const Home = () => {
                          <img src={search} alt="" className='' />
                         </button>
                         </div>
-                    </div>
+                    </div> */}
 
                 </div>
 

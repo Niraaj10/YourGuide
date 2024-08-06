@@ -9,7 +9,7 @@ const Login = ({ Userrr }) => {
   const [password, setPassword] = useState('');
   const [ppass, setPpass] = useState('');
   const [conPass, setConPass] = useState('');
-  const [form, setForm] = useState('Signup');
+  const [form, setForm] = useState('Login');
   const [errorMessage, setErrorMessage] = useState('');
   const [logUser, setLogUser] = useState('');
   const [logPass, setLogPass] = useState('');
@@ -260,9 +260,10 @@ const userLogout = () => {
             </div>
 
             
-            <div>
+            {/* <div>
               <button onClick={userLogout}>Logout</button>
-            </div>
+            </div> */}
+
           </div>
           
           </>}
