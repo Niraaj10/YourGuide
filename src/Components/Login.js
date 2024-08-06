@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Bg from '../Assests/img/LoginBg.jpg'
+import Profile from '../Assests/img/avatar/Profile.jpeg'
 import axios from 'axios';
 
 const Login = () => {
@@ -13,7 +14,7 @@ const Login = () => {
   const [logUser, setLogUser] = useState('');
   const [logPass, setLogPass] = useState('');
   const [loggedUser, setloggedUser] = useState(null);
-  const [userrr, setUserrr] = useState([]);
+  const [userrr, setUserrr] = useState(null);
 
 const changeForm = () => {
   if (form === 'Signup') {
@@ -124,7 +125,7 @@ const LogInForm = async (e) => {
 const userLogout = () => {
   setloggedUser(null);
   localStorage.removeItem('loggedUser')
-  setUserrr([])
+  setUserrr(null)
   console.log('Logoutttttt');
   console.log(userrr);    
 };
@@ -134,6 +135,7 @@ const userLogout = () => {
   return (
     <>
       <div>
+
         <div className='m-auto h-[100vh] w-full flex gap-7 justify-center items-center'>
           <img src={Bg} alt="" className='absolute z-0' />
 
@@ -150,6 +152,36 @@ const userLogout = () => {
 
           </div>
 
+      {/* {userrr.length === 0 ? <> */}
+      {userrr ? <>
+        {/* <div className='m-auto h-[100vh] w-full flex gap-7 justify-center items-center'> 
+        <img src={Bg} alt="" className='absolute z-0' /> */}
+        {/* </div> */}
+        <div className='flex flex-col items-end'>
+
+          <div>
+              <button onClick={userLogout} className='bg-[#41D6C7] z-10 relative p-2 mt-9 text-white font-semibold text-sm rounded-xl px-4'>Logout</button>
+          </div>
+        <div className='mt-2 relative z-10 h-[74vh] w-[35vw] border bg-white rounded-3xl flex flex-col justify-center items-center'> 
+
+          {/* hiiiiii userrrrrrrrrr */}
+
+          <div>
+            <img src={Profile} alt="" className='rounded-full w-24' />
+          </div>
+
+          <div>
+            {userrr.name}
+          </div>
+
+
+        </div>
+
+        </div>
+      </> 
+
+      : <>
+      {/* </>} */}
           <div className=' mt-9 relative z-10 h-[74vh] w-[35vw] border bg-white rounded-3xl flex flex-col justify-center items-center'>
 
             <div className={`Signup ${form === 'Signup' ? '' : 'hidden'}`}> 
@@ -225,8 +257,12 @@ const userLogout = () => {
               <button onClick={userLogout}>Logout</button>
             </div>
           </div>
+          
+          </>}
+
 
         </div>
+
 
       </div>
     </>
