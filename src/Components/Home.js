@@ -22,12 +22,12 @@ const Home = () => {
             <div className='Home flex flex-col'>
                 {/* <Navbar /> */}
                 <div className='flex justify-center items-start z-1'>
-                    <img src={bg} alt="" className='absolute top-[-110px] h-[800px]  w-[95vw] object-cover rounded-b-[70px]' />
+                    <img src={bg} alt="" className='absolute top-[-220px] lg:top-[-110px] h-[800px]  w-[95vw] object-cover rounded-b-[70px]' />
                 </div>
                 <div className='flex flex-col relative z-40 '>
                     <div className=' flex flex-col justify-center px-36 pt-80'>
-                        <div className='text-white drop-shadow-2xl text-2xl' style={{ textShadow: '2px 4px 6px rgba(0, 0, 0, 0.8)' }}>WELCOME TO </div>
-                        <div className='fig text-white text-[220px] font-extrabold mt-[-50px] drop-shadow-2xl' style={{ textShadow: '2px 2px 20px rgba(0, 0, 0, 0.8)' }}>Your<span className='text-lg'>Tour</span>Guide<span>.</span></div>
+                        <div className='text-white drop-shadow-2xl text-sm lg:text-2xl md:text-2xl' style={{ textShadow: '2px 4px 6px rgba(0, 0, 0, 0.8)' }}>WELCOME TO </div>
+                        <div className='fig text-white lg:text-[220px] sm:text-[50px] md:text-[150px] font-extrabold lg:mt-[-50px] mt-[-15px] drop-shadow-2xl' style={{ textShadow: '2px 2px 20px rgba(0, 0, 0, 0.8)' }}>Your<span className='text-lg'>Tour</span>Guide<span>.</span></div>
 
                         {/* <div className='text-white drop-shadow-2xl text-2xl' style={{ textShadow: '2px 4px 6px rgba(0, 0, 0, 0.8)' }}>We'll guide you to </div>
                         <div className='text-[#41D6C7] allu text-7xl' style={{ textShadow: '2px 4px 6px rgba(0, 0, 0, 0.8)' }}>make the right </div>
@@ -36,9 +36,9 @@ const Home = () => {
 
                 </div>
 
-                <div className='relative z-40 flex flex-col justify-center gap-5 mx-96 p-1 py-8 bg-white shadow-xl rounded-2xl'>
+                <div className='relative z-40 flex flex-col justify-center gap-5 lg:mx-96 mx-12 p-1 px-6 lg:py-8 bg-white shadow-xl rounded-2xl'>
 
-                    <div className='flex gap-2 items-center justify-center px-20 '>
+                    <div className='flex gap-2 items-center justify-center lg:px-20 '>
                         <div className=' font-bold text-sm flex gap-2 items-center'> 
                             Want to explore places according to your desire city   »»
                             {/* <img src={downn} alt="" />     */}
