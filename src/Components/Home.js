@@ -85,6 +85,7 @@ const Home = () => {
                     <div className='text-gray-500 font-bold pt-5'>
                         Explore best places in maharashtra with our tour planners
                     </div>
+                    
                 </div>
 
                 <ExploreP />

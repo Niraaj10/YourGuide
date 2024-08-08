@@ -60,14 +60,17 @@ export const fetchTripData = async (city, startDate, endDate) => {
 
     const options = {
         method: 'POST',
-        url: 'https://chat-gpt26.p.rapidapi.com/',
+        // url: 'https://chat-gpt26.p.rapidapi.com/',
+        hostname: 'chatgpt-api8.p.rapidapi.com',
+	port: null,
+	path: '/',
         headers: {
           'x-rapidapi-key': '85099ca235msh0cfd70f603401d5p19fbc5jsn0c1d0eff6d5b',
           'x-rapidapi-host': 'chat-gpt26.p.rapidapi.com',
           'Content-Type': 'application/json'
         },
         data: {
-          model: 'gpt-3.5-turbo',
+          // model: 'gpt-3.5-turbo',
           messages: [
             {
               role: 'user',
@@ -79,8 +82,8 @@ export const fetchTripData = async (city, startDate, endDate) => {
       
       try {
           const response = await axios.request(options);
-          console.log(response.data);
-          console.log(response.data.choices[0].message.content);
+          console.log(response);
+          // console.log(response.data.choices[0].message.content);
 
       } catch (error) {
           console.error(error);

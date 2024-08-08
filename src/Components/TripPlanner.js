@@ -54,8 +54,12 @@ const TripPlanner = () => {
     return { cityDescription, hotelss, perrDayss };
   };
 
+
+  // Search function
   const handleClick = async () => {
+    setError(null)
     console.log(days.length);
+    // setCity(city.toLowerCase)
 
     setLoading(true)
 
@@ -63,34 +67,47 @@ const TripPlanner = () => {
       ContRef.current.scrollIntoView({ behaviur: 'smooth' });
     }
 
+    //If the api is not working then this 'Pune' this dummy can able to show
+    console.log(city);
+    if (city === 'pune') {
+      setLoading(false)
+      splitText(fullText)
+    } else {  
+    // Fetching the chatgpt api data  
     try {
-      // const PlanText = await fetchTripData(city, startD, endD);
+      const PlanText = await fetchTripData(city, startD, endD);
       // const PlanText = await fetchTripDataC(city, startD, endD);
       // // const PlanText = await fetchTripDataC(fullText);
 
-      // console.log(city);
-      // console.log(startD);
-      // console.log(endD);
+      console.log(startD);
+      console.log(endD);
 
       setLoading(false)
+      console.log(PlanText);
+      
 
-      // const parts = await PlanText.split('\n\nHotels:\n');
-      // const cityDescription = parts[0];
-      // setCDes(cityDescription);
-      // const hotelParts = parts[1].split('\n\nDay ');
-      // const hotelss = hotelParts[0].trim().split(/\n(?=\d+\.\s)/);
-      // setHotels(hotelss);
-      // const days = 'Day ' + hotelParts.slice(1).join('\n\nDay ');
-      // const perrDayss = days.split('Day').slice(1);
-      // setDays(perrDayss);\
+      const parts = await PlanText.split('\n\nHotels:\n');
+      const cityDescription = parts[0];
+      setCDes(cityDescription);
+      const hotelParts = parts[1].split('\n\nDay ');
+      const hotelss = hotelParts[0].trim().split(/\n(?=\d+\.\s)/);
+      setHotels(hotelss);
+      const days = 'Day ' + hotelParts.slice(1).join('\n\nDay ');
+      const perrDayss = days.split('Day').slice(1);
+      setDays(perrDayss);
 
-      splitText(fullText)
+      // splitText(fullText)
 
     } catch (error) {
       console.error('Error Getting dataaaa', error);
       setError(error);
       setLoading(false)
     }
+    setCDes('')
+    setHotels([])
+    setDays([])
+  }
+
 
   }
 
@@ -141,6 +158,8 @@ const TripPlanner = () => {
               </div>
             </div>
           </div>
+          <div className='text-xs font-semibold text-gray-400'>If api request is failed </div>
+          <div className='text-xs font-semibold text-gray-400'>use 'Pune' for the dummy info to check how the stuff looks </div>
         </div>
 
         {/* <div className='w-full mx-auto'>
@@ -161,8 +180,9 @@ const TripPlanner = () => {
 
 
           {error &&
-            <div className='mx-auto'>
+            <div className='mx-auto flex items-center justify-center'>
               Sorryyy, No information found please enter valid place...
+              <span className='font-semibold'>or its api error use dummy info</span>
             </div>
           }
 
@@ -243,11 +263,12 @@ const TripPlanner = () => {
 
               <div className='basis-[40%]'>
                 {/* Mapppppp */}
-                <Mapp />
+                <Mapp city={city}/>
               </div>
 
 
             </div>
+            <hr className='mt-11'/>
           </div>
 
 

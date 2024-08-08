@@ -3,30 +3,33 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import axios from 'axios';
 
-const Mapp = () => {
-//   const [coordinates, setCoordinates] = useState({ lat: null, lng: null });
+const Mapp = ({ city }) => {
+  // const [coordinates, setCoordinates] = useState({ lat: '', lng: '' }); //// fetching the entered city's lng and lat 
 const [coordinates, setCoordinates] = useState({ lat: 18.5204, lng: 73.8567 });
 
   useEffect(() => {
     // Function to fetch geocoding data
-    const fetchGeocode = async () => {
-      try {
-        const response = await axios.get('https://map-geocoding.p.rapidapi.com/json', {
-          params: { address: 'Pune' },
-          headers: {
-            'x-rapidapi-key': '85099ca235msh0cfd70f603401d5p19fbc5jsn0c1d0eff6d5b',
-            'x-rapidapi-host': 'map-geocoding.p.rapidapi.com',
-          },
-        });
+    // const fetchGeocode = async () => {
+    //   try {
+    //     const response = await axios.get('https://map-geocoding.p.rapidapi.com/json', {
+    //       params: { address: 'Pune' }, //// dummy map 
+    //       // params: { address: `${city}` }, ///// fetching the entered city lng and lat
+    //       headers: {
+    //         'x-rapidapi-key': '85099ca235msh0cfd70f603401d5p19fbc5jsn0c1d0eff6d5b',
+    //         'x-rapidapi-host': 'map-geocoding.p.rapidapi.com',
+    //       },
+    //     });
 
-        const { lat, lng } = response.data.results[0].geometry.location;
-        setCoordinates({ lat, lng });
-      } catch (error) {
-        console.error('Error fetching geocode:', error);
-      }
-    };
+    //     const { lat, lng } = response.data.results[0].geometry.location;
+    //     console.log(response.data.results[0].geometry.location);
+        
+    //     setCoordinates({ lat, lng });
+    //   } catch (error) {
+    //     console.error('Error fetching geocode:', error);
+    //   }
+    // };
 
-    fetchGeocode();
+    // fetchGeocode();
   }, []);
 
 //   useEffect(() => {
@@ -53,7 +56,7 @@ const [coordinates, setCoordinates] = useState({ lat: 18.5204, lng: 73.8567 });
      </div> */}
 
     <div className='flex flex-col justify-center items-center'>
-      <h1>Map of Pune</h1>
+      <h1>Map of { city }</h1>
       <MapContainer center={[coordinates.lat, coordinates.lng]} zoom={12} style={{ height: '550px', width: '100%' }}>
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
