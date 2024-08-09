@@ -22,13 +22,13 @@ const Home = () => {
             <div className='Home flex flex-col'>
                 {/* <Navbar /> */}
                 <div className='flex justify-center items-start z-1'>
-                    <img src={bg} alt="" className='absolute top-[-330px] lg:top-[-110px] h-[800px]  w-[95vw] object-cover rounded-b-[30px] lg:rounded-b-[70px]' />
+                    <img src={bg} alt="" className='absolute top-[-204px] lg:top-[-110px] h-[800px]  w-[95vw] object-cover rounded-b-[30px] lg:rounded-b-[70px]' />
                 </div>
 
                 <div className='flex flex-col relative z-40 '>
-                    <div className=' flex flex-col justify-center px-36 pt-80 '>
+                    <div className=' flex flex-col justify-center px-6 lg:px-36 md:px-36 pt-[507px] lg:pt-80 md:pt-80'>
                         <div className='text-white drop-shadow-2xl text-xs lg:text-2xl md:text-2xl' style={{ textShadow: '2px 4px 6px rgba(0, 0, 0, 0.8)' }}>WELCOME TO </div>
-                        <div className='fig text-white text-lg lg:text-[240px] sm:text-[50px] md:text-[150px] font-extrabold lg:mt-[120px] mt-[-7px] drop-shadow-2xl lg:mb-16 ' style={{ textShadow: '2px 2px 20px rgba(0, 0, 0, 0.8)' }}>Your<span className='text-lg drop-shadow-2xl'>Tour</span>Guide<span>.</span></div>
+                        <div className='fig text-white text-[65px] lg:text-[240px] sm:text-[50px] md:text-[150px] font-extrabold lg:mt-[-65px] mt-[-18px] drop-shadow-2xl ' style={{ textShadow: '2px 2px 20px rgba(0, 0, 0, 0.8)' }}>Your<span className='text-xs lg:text-lg drop-shadow-2xl'>Tour</span>Guide<span>.</span></div>
 
                         {/* <div className='text-white drop-shadow-2xl text-2xl' style={{ textShadow: '2px 4px 6px rgba(0, 0, 0, 0.8)' }}>We'll guide you to </div>
                         <div className='text-[#41D6C7] allu text-7xl' style={{ textShadow: '2px 4px 6px rgba(0, 0, 0, 0.8)' }}>make the right </div>
@@ -37,10 +37,10 @@ const Home = () => {
 
                 </div>
 
-                <div className='relative z-40 flex flex-col justify-center gap-5 lg:mx-96 mx-12 p-1 px-6 lg:py-8 bg-white shadow-xl rounded-2xl'>
+                <div className='relative z-40 flex flex-col justify-center gap-5 lg:mx-96 mx-6 p-1 px-6 lg:py-8 lg:bg-white md:bg-white md:shadow-xl lg:shadow-xl rounded-2xl'>
 
-                    <div className='flex gap-2 items-center justify-center lg:px-20 '>
-                        <div className=' font-bold text-sm flex gap-2 items-center'> 
+                    <div className='flex flex-col lg:flex-row md:flex-row gap-2 items-center justify-center lg:px-20 '>
+                        <div className='bg-white shadow-xl md:shadow-none lg:shadow-none px-3 py-2 rounded-xl font-bold text-sm flex gap-2 items-center'> 
                             Want to explore places according to your desire city   »»
                             {/* <img src={downn} alt="" />     */}
                         </div>
@@ -52,7 +52,7 @@ const Home = () => {
                         <button className='bg-[#41D6C7] p-3 rounded-full'>
                          <img src={search} alt="" className='' />
                         </button> */}
-                        <button className='p-2 px-5 bg-[#41D6C7] text-white rounded-xl' >
+                        <button className='p-2 px-5 bg-[#41D6C7] text-white rounded-xl shadow-2xl mt-[-10px] lg:mt-0 md:mt-0' >
                             {/* Explore */}
                             <Link to="/explore"><div>Explore</div></Link>
                         </button>
