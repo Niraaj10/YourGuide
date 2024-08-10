@@ -38,14 +38,14 @@ const Navbar = ({ user }) => {
             </div>
           </div>
 
-          <div className='visible lg:h-0 lg:invisible md:invisible flex gap-10 lg:gap-24 font-semibold text-gray-700 lg:ml-24 justify-evenly items-center'>
+        </nav>
+          <div className='absolute z-50 bottom-0 bg-white border w-[98vw] p-1 mx-2 rounded-t-xl flex gap-10 lg:gap-24 font-semibold text-gray-700 justify-evenly items-center visible lg:h-0 lg:invisible md:invisible'>
 
               <Link to="/explore"><div className='text-xs'>Explore</div></Link>
               <Link to="/tripPlanner"><div className='text-xs'>Trip planner</div></Link>
               {/* <Link to="/blog"><div>Blog</div></Link> */}
               <Link to="/about"><div className='text-xs'>About Us</div></Link>
             </div>
-        </nav>
       </div>
     </>
   )
