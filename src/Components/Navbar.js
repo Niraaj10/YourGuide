@@ -1,6 +1,9 @@
 import React from 'react'
 import { Link } from "react-router-dom";
 import Use from '../Assests/svg/user.svg'
+import tp from '../Assests/svg/Tp.svg';
+import about from '../Assests/svg/about.svg';
+import exp from '../Assests/svg/exp.svg';
 
 const Navbar = ({ user }) => {
   console.log(user);
@@ -39,12 +42,21 @@ const Navbar = ({ user }) => {
           </div>
 
         </nav>
-          <div className='absolute z-50 bottom-0 bg-white border w-[98vw] p-1 mx-2 rounded-t-xl flex gap-10 lg:gap-24 font-semibold text-gray-700 justify-evenly items-center visible lg:h-0 lg:invisible md:invisible'>
+          <div className='fixed z-50 bottom-0 bg-white border w-[98vw] p-1 mx-2 rounded-t-xl flex gap-10 lg:gap-24 font-semibold text-gray-700 justify-evenly items-center visible lg:h-0 lg:invisible md:invisible'>
 
-              <Link to="/explore"><div className='text-xs'>Explore</div></Link>
-              <Link to="/tripPlanner"><div className='text-xs'>Trip planner</div></Link>
+              <Link to="/explore" className='flex gap-1 flex-col justify-center items-center'>
+              <img src={exp} alt="" className='w-[20px]' />
+              <div className='text-[8px]'>Explore</div>
+              </Link>
+              <Link to="/tripPlanner" className='flex gap-1 flex-col justify-center items-center'>
+              <img src={tp} alt="" className='w-[20px]' />
+              <div className='text-[8px]'>Trip planner</div>
+              </Link>
               {/* <Link to="/blog"><div>Blog</div></Link> */}
-              <Link to="/about"><div className='text-xs'>About Us</div></Link>
+              <Link to="/about" className='flex gap-1 flex-col justify-center items-center'>
+              <img src={about} alt="" className='w-[20px]' />
+              <div className='text-[8px]'>About Us</div>
+              </Link>
             </div>
       </div>
     </>
