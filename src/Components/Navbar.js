@@ -51,6 +51,7 @@ const Navbar = ({ user }) => {
               <Link to="/tripPlanner" className='flex gap-1 flex-col justify-center items-center'>
               <img src={tp} alt="" className='w-[20px]' />
               <div className='text-[8px]'>Trip planner</div>
+              <div></div>
               </Link>
               {/* <Link to="/blog"><div>Blog</div></Link> */}
               <Link to="/about" className='flex gap-1 flex-col justify-center items-center'>
