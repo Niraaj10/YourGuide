@@ -77,13 +77,13 @@ const Home = () => {
 
 
                 <div className='Weekly mt-20 flex flex-col justify-center items-center h-[200px]'>
-                    <div className='font-bold text-5xl'>
+                    <div className='font-bold text-[9vw] sm:text-[9vw] md:text-[5vw] lg:text-5xl'>
                         Discover Weekly
                     </div>
                     {/* <div className='text-gray-500 font-bold pt-5'>
                         Best places to explore in India
                     </div> */}
-                    <div className='text-gray-500 font-bold pt-5'>
+                    <div className='text-gray-500 mx-7 font-bold pt-5'>
                         Explore best places in maharashtra with our tour planners
                     </div>
                     
