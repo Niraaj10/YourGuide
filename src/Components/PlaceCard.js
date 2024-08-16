@@ -5,8 +5,9 @@ const PlaceCard = () => {
   return (
     <>
       <div>
-        <div className="Card h-[370px] rounded-3xl shadow-xl w-[250px] flex flex-col">
-            <img src={saputara} alt="" className='w-[250px] rounded-t-3xl '/>
+        {/* <div className="Card h-[370px] rounded-3xl shadow-xl w-[250px] flex flex-col"> */}
+        <div className="Card h-[31vh] lg:h-[45vh] rounded-3xl shadow-xl w-[40vw] lg:w-[16vw] flex flex-col">
+            <img src={saputara} alt="" className='w-[40vw] lg:w-[16vw] rounded-t-3xl '/>
             <div className="Place p-2 px-3 text-xl font-bold">Saputara</div>
             <div className='px-3 flex justify-between'>
                 <div className='font-semibold'>3 Days</div>
