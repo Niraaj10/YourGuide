@@ -26,9 +26,9 @@ const Home = () => {
                 </div>
 
                 <div className='flex flex-col relative z-40 '>
-                    <div className=' flex flex-col justify-center px-6 lg:px-36 md:px-36 pt-[440px] lg:pt-80 md:pt-80'>
-                        <div className='text-white drop-shadow-2xl text-xs lg:text-2xl md:text-2xl' style={{ textShadow: '2px 4px 6px rgba(0, 0, 0, 0.8)' }}>WELCOME TO </div>
-                        <div className='fig text-white text-[50px] lg:text-[240px] sm:text-[50px] md:text-[150px] font-extrabold lg:mt-[-65px] mt-[-18px] drop-shadow-2xl ' style={{ textShadow: '2px 2px 20px rgba(0, 0, 0, 0.8)' }}>Your<span className='text-xs lg:text-lg drop-shadow-2xl'>Tour</span>Guide<span>.</span></div>
+                    <div className=' flex flex-col justify-center px-6 lg:px-36 md:px-36 pt-[382px] lg:pt-80 md:pt-80'>
+                        <div className='text-white  drop-shadow-2xl text-xs lg:text-2xl md:text-2xl' style={{ textShadow: '2px 4px 6px rgba(0, 0, 0, 0.8)' }}>WELCOME TO </div>
+                        <div className='fig mx-auto text-white text-[16vw] lg:text-[15vw] sm:text-[16vw] md:text-[14vw] font-extrabold lg:mt-[-65px] mt-[-18px] drop-shadow-2xl ' style={{ textShadow: '2px 2px 20px rgba(0, 0, 0, 0.8)' }}>Your<span className='text-xs lg:text-lg drop-shadow-2xl'>Tour</span>Guide<span>.</span></div>
 
                         {/* <div className='text-white drop-shadow-2xl text-2xl' style={{ textShadow: '2px 4px 6px rgba(0, 0, 0, 0.8)' }}>We'll guide you to </div>
                         <div className='text-[#41D6C7] allu text-7xl' style={{ textShadow: '2px 4px 6px rgba(0, 0, 0, 0.8)' }}>make the right </div>
