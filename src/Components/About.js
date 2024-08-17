@@ -7,8 +7,8 @@ import Checkk from '../Assests/svg/checkk.svg';
 const About = () => {
   return (
     <>
-      <div className='mt-20 flex '>
-        <div className='basis-1/2 flex h-[90vh] borde'>
+      <div className='mt-20 flex lg:flex-row flex-col'>
+        <div className='lg:basis-1/2 flex lg:h-[90vh] borde'>
 
           <div className='m-auto h-[60vh] w-[80%] borde'>
             <div>
@@ -42,7 +42,7 @@ const About = () => {
           </div>
         </div>
 
-        <div className='basis-1/2 flex h-[90vh]  relative'>
+        <div className='lg:basis-1/2 hidden lg:flex lg:h-[90vh]  relative'>
           {/* <div className='absolute z-20'> */}
           <img src={Cloud} alt="" className='absolute z-20' />
           {/* </div> */}

@@ -23,6 +23,8 @@ const Explore = () => {
   const ContRef = useRef(null);
 
 
+ console.log(attraction);
+ 
   const ChangeQuery = (e) => {
     setQuery(e.target.value);
   }
@@ -99,15 +101,15 @@ const Explore = () => {
 
 
         {/* <img src={bgEx} alt="" className='absolute top-0 z-0 w-[1010px]' /> */}
-        <div className='ExplorePage mt-20 flex relative '>
+        <div className='ExplorePage mt-20 flex flex-col-reverse lg:flex-row relative '>
 
-          <img src={cloud2} alt="" className='absolute top-0 z-0 h-[700px]' />
-          <div className='basis-2/3 flex justify-start items-center p-24 my-10 relative '>
-            <div className='bg-white w-full p-8 rounded-3xl shadow-2xl'>
-              <div className='w-full relative flex flex-col gap-7'>
+          <img src={cloud2} alt="" className='absolute top-0 z-0 h-[700px] hidden lg:block' />
+          <div className='lg:basis-2/3 mt-[-100px] lg:mt-0 z-10 flex justify-start items-center px-7 py-4 lg:p-24 lg:my-10 relative '>
+            <div className='bg-white  w-full  px-4 py-7 lg:p-8 rounded-3xl shadow-2xl'>
+              <div className='w-full relative flex flex-col lg:gap-7'>
                 <label htmlFor="" className='font-bold'>Enter your Destination</label>
 
-                <div className='w-full flex items-center gap-11'>
+                <div className='w-full flex items-center gap-3 lg:gap-11'>
                   <div className='flex w-[80%] '>
                     <img src={navigate} alt="" className='border-b border-[#777E91]' />
 
@@ -141,9 +143,9 @@ const Explore = () => {
 
 
           <div>
-            <div className='basis-1/3 relative bg-white' >
-              <img src={cloud} alt="" className='absolute top-14 ' />
-              <div className='grid grid-cols-2 gap-5 justify-center p-20'>
+            <div className='lg:basis-1/3 relative bg-white' >
+              <img src={cloud} alt="" className='absolute top-14 hidden lg:block' />
+              <div className='grid grid-cols-2 gap-5 justify-center px-9 lg:p-20'>
                 <div className='flex flex-col justify-end items-end flex-wrap '>
                   {/* <div>.</div> */}
                   <img src={img1} alt="" className='object-contain w-[220px] rounded-3xl' />
@@ -163,11 +165,16 @@ const Explore = () => {
         </div>
 
         {/* <div className="SearchCont bg-white grid grid-cols-2 gap-10 h-fit px-36 py-2 "> */}
+        <div className={`text-xl  justify-center items-center mt-11 font-bold
+         ${attraction.length === 0 ? 'hidden' : 'flex'} `} >
+          Explore places in <span className='fig text-[#41D6C7] text-4xl pl-2'>{query}</span>
+        </div>
         <div
           ref={ContRef}
-          className={`SearchCont bg-white grid grid-cols-4 gap-10  px-36 py-2 pt-24 relative
+          className={`SearchCont bg-white grid grid-cols-2 lg:grid-cols-4 gap-3 lg:gap-10 px-8 lg:px-36 py-2 lg:pt-24 relative
           ${loading === false ? 'h-fit bg-[#FCFCFD]' : 'h-[40vh] '} `}
         >
+      
 
           {loading && <>
           <div className='mx-auto absolute top-28 left-[50%]'>
@@ -189,7 +196,8 @@ const Explore = () => {
               {loc.name && loc.photo && loc.photo.images && (
                 <>
 
-                  <div key={index} className='flex flex-col bg-white w-[300px] h-[350px] rounded-3xl shadow-sm '>
+                  {/* <div key={index} className='flex flex-col bg-white w-[300px] h-[350px] rounded-3xl shadow-sm '> */}
+                  <div key={index} className='flex flex-col bg-white w-[40vw] h-[38vh] rounded-3xl shadow-sm '>
 
 
                     {/* <div>{loc.result_type}</div> */}
@@ -198,10 +206,10 @@ const Explore = () => {
                         <img src={loc.photo.images.medium.url} alt={loc.name} className='w-[300px] h-[200px] rounded-t-2xl' />
                       </div>
                     )}
-                    <div className='p-3 flex-initial flex flex-col justify-between h-full pb-5'>
+                    <div className='p-3 flex-initial flex gap-0 flex-col justify-between h-full pb-5'>
 
                       <div className='flex justify-between'>
-                        <div className='font-bold text-lg w-[200px] items-start'>{loc?.name}</div>
+                        <div className='font-bold text-sm lg:text-lg w-[200px] items-start'>{loc?.name}</div>
                       </div>
 
                       <div className='text-xs'>
@@ -220,8 +228,8 @@ const Explore = () => {
                         )} */}
                       </div>
 
-                      <div className='flex justify-between gap-10'>
-                        <div className='flex gap-1 font-bold'>
+                      <div className='flex justify-between gap-4 lg:gap-10'>
+                        <div className='flex items-center justify-center gap-1 font-bold'>
                           <img src={Rat} alt="" className='w-3' />
                           {loc?.rating}
                           </div>
