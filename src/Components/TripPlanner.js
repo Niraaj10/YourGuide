@@ -132,7 +132,8 @@ const TripPlanner = () => {
         <img src={BgTP2} alt="" className='object-contain absolute top-[-93px] rounded-b-[50px]  lg:hidden' />
 
         <div className='w-full relative z-20  flex flex-col mx-auto justify-center items-center'>
-          <div className='text-white mt-[477px] lg:mt-[160px]'>
+          {/* <div className='text-white mt-[477px] lg:mt-[160px]'> */}
+          <div className='text-white mt-[435px] lg:mt-[160px]'>
             <div className='font-semibold lg:font-bold text-lg mx-auto lg:text-sm mb-[-17px] lg:mb-[-42px]'>Plan your trip with us with the help of AI</div>
             <div className='fig text-[14vw] lg:text-[150px] font-bold drop-shadow-3xl' style={{ textShadow: '1px 1px 15px rgba(0, 0, 0, 0.6)' }}>Make your trip</div>
           </div>
@@ -144,14 +145,26 @@ const TripPlanner = () => {
               <div className='lg:border w-fit p-2 rounded-xl flex flex-col lg:flex-row justify-center items-center'>
                 <input type="text" className='outline-none border-b lg:border-none focus:outline-none w-80 pl-5' placeholder='Enter city' value={city} onChange={(e) => setCity(e.target.value)} />
 
-                <div className='relative'>
-                  <div className='absolute top-[-28px;] right-[41px] text-xs bg-white px-2 font-semibold text-gray-300'>End-date</div>
+                <div className='relative hidden lg:block'>
+                  <div className='absolute top-[-28px;] right-[41px] text-xs bg-white px-2 font-semibold text-gray-300'>Start-date</div>
                   <input type="date" name="" id="" className='outline-none focus:outline-none lg:border-l lg:px-2' placeholder='Enter city' value={startD} onChange={(e) => setStartD(e.target.value)} />
                 </div>
 
-                <div className='relative'>
+                <div className='relative hidden lg:block'>
                   <div className='absolute top-[-28px;] right-[63px] text-xs bg-white px-2 font-semibold text-gray-300'>End-date</div>
                   <input type="date" name="" id="" className='outline-none focus:outline-none lg:border-l lg:px-2 lg:border-r lg:mr-5' placeholder='Enter city' value={endD} onChange={(e) => setEndD(e.target.value)} />
+                </div>
+
+                <div className='flex gap-3 px-2 lg:hidden border-b py-3 mb-2 mt-4'>
+                  <div className='relative'>
+                  <div className='absolute top-[-18px;] right-[41px] text-xs bg-white px-2 font-semibold text-gray-300'>Start-date</div>
+                  <input type="date" name="" id="" className='outline-none focus:outline-none lg:border-l lg:px-2' placeholder='Enter city' value={startD} onChange={(e) => setStartD(e.target.value)} />
+                  </div>
+
+                  <div className='relative'>
+                  <div className='absolute top-[-18px;] right-[63px] text-xs bg-white px-2 font-semibold text-gray-300'>End-date</div>
+                  <input type="date" name="" id="" className='outline-none focus:outline-none lg:border-l lg:px-2 lg:border-r lg:mr-5' placeholder='Enter city' value={endD} onChange={(e) => setEndD(e.target.value)} />
+                  </div>
                 </div>
 
                 <button onClick={handleClick} className='bg-[#41D6C7] p-3 rounded-full'>
@@ -170,7 +183,7 @@ const TripPlanner = () => {
 
         <div
           ref={ContRef}
-          className={`SearchCont bg-white px-36 py-2 pt-24 relative
+          className={`SearchCont bg-white px-8 lg:px-36 lg:py-2 pt-24 relative
         ${loading === false ? 'h-fit bg-[#FCFCFD]' : 'h-[40vh] '} `}
         >
 
@@ -195,7 +208,7 @@ const TripPlanner = () => {
             <div className='font-bold flex justify-center items-center my-9 text-xl'>{city.toUpperCase} ITINERARY</div>
             <div className='flex gap-8  h-[70vh]'>
 
-              <div className='basis-[60%] overflow-y-scroll scroll-smooth no-scrollbar'>
+              <div className='lg:basis-[60%] overflow-y-scroll scroll-smooth no-scrollbar'>
 
                 <div className='mb-7'>
                   <div className='mb text-[10px] text-gray-400 flex gap-1 items-center'>
@@ -228,7 +241,7 @@ const TripPlanner = () => {
                               </> }
                           </div> */}
 
-                            <div className='mx-12 mt-[-1px] text-sm font-bold m-3 mr-20 border rounded-3xl p-2 flex justify-between items-center w-full h-10' onClick={() => Collps(index)}>
+                            <div className='mx-12 mt-[-1px] text-sm font-bold m-3  mr-5 lg:mr-20 border rounded-3xl p-2 flex justify-between items-center w-full h-10' onClick={() => Collps(index)}>
                               Day {index + 1}
                               <img src={down} alt="" />
                             </div>
@@ -248,7 +261,7 @@ const TripPlanner = () => {
 
                             {
                               isOpen[index] && (
-                                <div className='ml-6 mr-20 mb-6'>
+                                <div className='ml-6 mr-5 lg:mr-20 mb-6'>
                                   {day}
                                 </div>
 
@@ -263,7 +276,7 @@ const TripPlanner = () => {
 
               </div>
 
-              <div className='basis-[40%]'>
+              <div className='basis-[40%] hidden lg:block'>
                 {/* Mapppppp */}
                 <Mapp city={city}/>
               </div>
