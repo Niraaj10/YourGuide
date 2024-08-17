@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from "react-router-dom";
-import Use from '../Assests/svg/user.svg'
+import Use from '../Assests/svg/user12.svg'
 import tp from '../Assests/svg/Tp.svg';
 import about from '../Assests/svg/about.svg';
 import exp from '../Assests/svg/exp.svg';

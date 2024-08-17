@@ -45,34 +45,34 @@ const Review = () => {
         <>
             <div className='ReviewPage mt-20 flex flex-col justify-center items-center mb-10'>
                 <div className='flex flex-col justify-center items-center'>
-                    <div className='text-5xl font-bold'>What our happy clients say</div>
-                    <button className='mt-16 mb-4 bg-[#41D6C7] text-white font-bold p-2 px-5 rounded-3xl'>Write Review</button>
+                    <div className='lg:text-5xl text-[5vw] md:text-[5vw] font-bold'>What our happy clients say</div>
+                    <button className='mt-5 mb-2 lg:mt-16 lg:mb-4 bg-[#41D6C7] text-white font-bold p-2 px-5 rounded-3xl'>Write Review</button>
                 </div>
 
-                <div className='Imgs grid grid-cols-6 gap-12 items-center px-40 py-10'>
+                <div className='Imgs grid grid-cols-3 lg:grid-cols-6 gap-6 lg:gap-12 items-center lg:px-40 lg:py-10'>
                     <div className='rotate-12'>
-                        <img src={avt1} alt="" className='w-20 rounded-3xl' />
+                        <img src={avt1} alt="" className='w-[4.25rem] lg:w-20 rounded-3xl' />
                     </div>
                     <div className='text-white'>.</div>
                     <div className='-rotate-[20deg]'>
-                        <img src={avt2} alt="" className='w-20 rounded-3xl' />
+                        <img src={avt2} alt="" className='w-[4.25rem] lg:w-20 rounded-3xl' />
                     </div>
                     <div className='text-white'>.</div>
                     <div className='rotate-12'>
-                        <img src={avt3} alt="" className='w-20 rounded-3xl' />
+                        <img src={avt3} alt="" className='w-[4.25rem] lg:w-20 rounded-3xl' />
                     </div>
-                    <div className='text-white'>.</div>
-                    <div className='text-white'>.</div>
+                    <div className='text-white lg:block hidden'>.</div>
+                    <div className='text-white '>.</div>
                     <div className='rotate-12'>
-                        <img src={avt4} alt="" className='w-20 rounded-3xl' />
+                        <img src={avt4} alt="" className='w-[4.25rem] lg:w-20 rounded-3xl' />
                     </div>
-                    <div className='text-white'>.</div>
+                    <div className='text-white '>.</div>
                     <div className='rotate-12'>
-                        <img src={avt5} alt="" className='w-20 rounded-3xl' />
+                        <img src={avt5} alt="" className='w-[4.25rem] lg:w-20 rounded-3xl' />
                     </div>
                     <div className='text-white'>.</div>
-                    <div className='-rotate-45'>
-                        <img src={avt6} alt="" className='w-20 rounded-3xl' />
+                    <div className='-rotate-45 lg:block hidden'>
+                        <img src={avt6} alt="" className='w-[4.25rem] lg:w-20 rounded-3xl' />
                     </div>
 
                 </div>
@@ -80,9 +80,9 @@ const Review = () => {
 
                     <div className='flex flex-col items-center'>
                         <div>
-                            <img src={Quo} alt="" className='w-5 mb-4' />
+                            <img src={Quo} alt="" className='w-9 lg:w-5 mb-4' />
                         </div>
-                        <div className="flex justify-between items-center gap-48">
+                        <div className="flex justify-between items-center lg:gap-48">
                             <button onClick={prevReview} className='p-2 rounded-full border'><img src={prevbtn} alt="" /></button>
                             <div className="review w-52 flex flex-col justify-center items-center">
 

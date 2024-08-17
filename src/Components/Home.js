@@ -22,11 +22,11 @@ const Home = () => {
             <div className='Home flex flex-col'>
                 {/* <Navbar /> */}
                 <div className='flex justify-center items-start z-1'>
-                    <img src={bg} alt="" className='absolute top-[-245px] lg:top-[-110px] h-[800px]  w-[95vw] object-cover rounded-b-[30px] lg:rounded-b-[70px]' />
+                    <img src={bg} alt="" className='absolute top-[-60px] lg:top-[-110px] h-[800px]  w-[95vw] object-cover rounded-b-[30px] lg:rounded-b-[70px]' />
                 </div>
 
                 <div className='flex flex-col relative z-40 '>
-                    <div className=' flex flex-col justify-center px-6 lg:px-36 md:px-36 pt-[382px] lg:pt-80 md:pt-80'>
+                    <div className=' flex flex-col justify-center px-6 lg:px-36 md:px-36 pt-[620px] lg:pt-80 md:pt-80'>
                         <div className='text-white  drop-shadow-2xl text-xs lg:text-2xl md:text-2xl' style={{ textShadow: '2px 4px 6px rgba(0, 0, 0, 0.8)' }}>WELCOME TO </div>
                         <div className='fig mx-auto text-white text-[16vw] lg:text-[15vw] sm:text-[16vw] md:text-[14vw] font-extrabold lg:mt-[-65px] mt-[-18px] drop-shadow-2xl ' style={{ textShadow: '2px 2px 20px rgba(0, 0, 0, 0.8)' }}>Your<span className='text-xs lg:text-lg drop-shadow-2xl'>Tour</span>Guide<span>.</span></div>
 
