@@ -139,15 +139,15 @@ const userLogout = () => {
     <>
       <div>
 
-        <div className='m-auto h-[100vh] w-full flex gap-7 justify-center items-center'>
-          <img src={Bg} alt="" className='absolute z-0' />
+        <div className='m-auto h-[100vh] w-full flex lg:flex-row flex-col gap-7 justify-center items-center'>
+          <img src={Bg} alt="" className='absolute z-0 w-[100vw] h-[100vh] object-cover' />
 
-          <div className='relative z-10'>
+          <div className='relative z-10 mb-[-50px] lg:mb-0'>
             {/* YourGuide */}
             <div className='text-white drop-shadow-2xl text-sm' style={{ textShadow: '2px 4px 6px rgba(0, 0, 0, 0.8)' }}>
               WELCOME TO
             </div>
-            <div className='fig text-white text-8xl font-extrabold drop-shadow-2xl' style={{ textShadow: '2px 2px 20px rgba(0, 0, 0, 0.8)' }}>
+            <div className='fig text-white text-[17vw] lg:text-8xl font-extrabold drop-shadow-2xl' style={{ textShadow: '2px 2px 20px rgba(0, 0, 0, 0.8)' }}>
               Your
               {/* <span className='text-lg'>Tour</span> */}
               Guide<span>.</span>
@@ -165,6 +165,7 @@ const userLogout = () => {
           <div>
               <button onClick={userLogout} className='bg-[#41D6C7] z-10 relative p-2 mt-9 text-white font-semibold text-sm rounded-xl px-4'>Logout</button>
           </div>
+
         <div className='mt-2 relative z-10 h-[64vh] w-[30vw] border bg-white rounded-3xl flex flex-col justify-center items-center'> 
 
           {/* hiiiiii userrrrrrrrrr */}
@@ -189,28 +190,30 @@ const userLogout = () => {
 
       : <>
       {/* </>} */}
-          <div className=' mt-9 relative z-10 h-[74vh] w-[35vw] border bg-white rounded-3xl flex flex-col justify-center items-center'>
+
+
+          <div className='mt-3 lg:mt-9 relative z-10 h-[64vh] lg:h-[74vh] w-[72vw] lg:w-[35vw] border bg-white rounded-3xl flex flex-col justify-center items-center'>
 
             <div className={`Signup ${form === 'Signup' ? '' : 'hidden'}`}> 
               {/* Signup */}
               <div className='text-xl flex flex-col font-semibold items-center justify-center'>
                 Hello, Buddyy!
-                <div className='text-xs mt-2 w-[300px]'>
+                <div className='text-xs mt-2 w-[51vw] lg:w-[300px]'>
                   Enter your personal details and start your journey with us
                 </div>
 
                 <form onSubmit={userData} className='flex flex-col mt-10'>
                   <div className='mb-1 text-xs font-bold'>Username</div>
-                  <input type="text" value={username} className='border mb-5 rounded-lg px-3 py-2 w-[300px] text-sm ' onChange={(e) => setUsername(e.target.value)} required/>
+                  <input type="text" value={username} className='border mb-5 rounded-lg px-3 py-2 w-[51vw] lg:w-[300px] text-sm ' onChange={(e) => setUsername(e.target.value)} required/>
                   <div className='mb-1 text-xs font-bold'>Email</div>
-                  <input type="email" required value={email} className='border mb-5 rounded-lg px-3 py-2 w-[300px] text-sm ' onChange={(e) => setEmail(e.target.value)}/>
+                  <input type="email" required value={email} className='border mb-5 rounded-lg px-3 py-2 w-[51vw] lg:w-[300px] text-sm ' onChange={(e) => setEmail(e.target.value)}/>
                   <div className='mb-1 text-xs font-bold'>Password</div>
-                  <input type="Password" required value={ppass} className='border mb-5 rounded-lg px-3 py-2 w-[300px] text-sm ' onChange={(e) => setPpass(e.target.value)}/>
+                  <input type="Password" required value={ppass} className='border mb-5 rounded-lg px-3 py-2 w-[51vw] lg:w-[300px] text-sm ' onChange={(e) => setPpass(e.target.value)}/>
                   <div className='mb-1 text-xs font-bold'>Confirm Password</div>
-                  <input type="Password" required value={conPass} className='border mb-5 rounded-lg px-3 py-2 w-[300px] text-sm ' onChange={(e) => setConPass(e.target.value)}/>
+                  <input type="Password" required value={conPass} className='border mb-5 rounded-lg px-3 py-2 w-[51vw] lg:w-[300px] text-sm ' onChange={(e) => setConPass(e.target.value)}/>
                   {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
 
-                  <button className='w-[300px] border rounded-lg text-sm font-bold text-white bg-[#41D6C7] py-2'>
+                  <button className='w-[15vw] lg:w-[300px] border rounded-lg text-sm font-bold text-white bg-[#41D6C7] py-2'>
                     Signup
                   </button>                  
 
@@ -231,20 +234,20 @@ const userLogout = () => {
               {/* Login */}
               <div className='text-xl flex flex-col font-semibold items-center justify-center'>
                 Welcome Backk!
-                <div className='text-xs mt-2 w-[300px]'>
+                <div className='text-xs mt-2 w-[51vw] lg:w-[300px]'>
                 To keep connected with us please login with your personal info
                 </div>
 
                 <form onSubmit={LogInForm} className='flex flex-col mt-14'>
                   <div className='mb-1 text-xs font-bold'>Username</div>
-                  <input onChange={(e) => setLogUser(e.target.value)} type="text" className='border mb-9 rounded-lg px-3 py-2 w-[300px] text-sm '/>
+                  <input onChange={(e) => setLogUser(e.target.value)} type="text" className='border mb-9 rounded-lg px-3 py-2 w-[51vw] lg:w-[300px] text-sm '/>
                 
                   <div className='mb-1 text-xs font-bold'>Password</div>
-                  <input onChange={(e) => setLogPass(e.target.value)} type="Password" className='border mb-9 rounded-lg px-3 py-2 w-[300px] text-sm '/>
+                  <input onChange={(e) => setLogPass(e.target.value)} type="Password" className='border mb-9 rounded-lg px-3 py-2 w-[51vw] lg:w-[300px] text-sm '/>
 
                   {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
               
-                  <button className='w-[300px] border rounded-lg text-sm font-bold text-white bg-[#41D6C7] py-2'>
+                  <button className='w-[51vw] lg:w-[300px] border rounded-lg text-sm font-bold text-white bg-[#41D6C7] py-2'>
                     Login
                   </button>                  
                 </form>
