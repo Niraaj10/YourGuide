@@ -1,13 +1,11 @@
 import React from 'react'
 import { Link } from "react-router-dom";
-import Navbar from './Navbar'
 import bg from '../Assests/img/yash-raut--JVG6PsOrKA-unsplash.jpg'
 import ExploreP from './ExploreP'
 import Rating from './Rating'
 import Review from './Review'
 import Footer from './Footer'
-import search from '../Assests/svg/Search.svg';
-import downn from '../Assests/svg/downArrow.svg';
+
 
 const Home = () => {
 

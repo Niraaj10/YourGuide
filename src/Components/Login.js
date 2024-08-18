@@ -21,7 +21,7 @@ const changeForm = () => {
     setForm('Login')
   }
 }
-// console.log(form);
+console.log(userrr);
 
 
 
@@ -166,7 +166,7 @@ const userLogout = () => {
               <button onClick={userLogout} className='bg-[#41D6C7] z-10 relative p-2 mt-9 text-white font-semibold text-sm rounded-xl px-4'>Logout</button>
           </div>
 
-        <div className='mt-2 relative z-10 h-[64vh] w-[30vw] border bg-white rounded-3xl flex flex-col justify-center items-center'> 
+        <div className='mt-2 relative z-10 w-[70vw] h-[40vh] lg:h-[64vh] lg:w-[30vw] border bg-white rounded-3xl flex flex-col justify-center items-center'> 
 
           {/* hiiiiii userrrrrrrrrr */}
 
@@ -192,7 +192,8 @@ const userLogout = () => {
       {/* </>} */}
 
 
-          <div className='mt-3 lg:mt-9 relative z-10 h-[64vh] lg:h-[74vh] w-[72vw] lg:w-[35vw] border bg-white rounded-3xl flex flex-col justify-center items-center'>
+          {!userrr && (
+          <div className={`mt-3 lg:mt-9 relative z-10 h-[64vh] lg:h-[74vh] w-[72vw] lg:w-[35vw] border bg-white rounded-3xl flex flex-col justify-center items-center `}>
 
             <div className={`Signup ${form === 'Signup' ? '' : 'hidden'}`}> 
               {/* Signup */}
@@ -213,6 +214,7 @@ const userLogout = () => {
                   <input type="Password" required value={conPass} className='border mb-5 rounded-lg px-3 py-2 w-[51vw] lg:w-[300px] text-sm ' onChange={(e) => setConPass(e.target.value)}/>
                   {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
 
+                  <div className='text-[9px] text-gray-400'>It will not work because its dummy</div>
                   <button className='w-[15vw] lg:w-[300px] border rounded-lg text-sm font-bold text-white bg-[#41D6C7] py-2'>
                     Signup
                   </button>                  
@@ -246,7 +248,11 @@ const userLogout = () => {
                   <input onChange={(e) => setLogPass(e.target.value)} type="Password" className='border mb-9 rounded-lg px-3 py-2 w-[51vw] lg:w-[300px] text-sm '/>
 
                   {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
-              
+
+                  <div className='text-[9px] text-gray-400'>
+                    username: user11
+                    password: 123
+                  </div>
                   <button className='w-[51vw] lg:w-[300px] border rounded-lg text-sm font-bold text-white bg-[#41D6C7] py-2'>
                     Login
                   </button>                  
@@ -268,6 +274,7 @@ const userLogout = () => {
             </div> */}
 
           </div>
+          )}
           
           </>}
 

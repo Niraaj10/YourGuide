@@ -2,7 +2,6 @@ import React from 'react'
 import Airr from '../Assests/img/Air.png';
 import Seaa from '../Assests/img/Sea.png';
 import Cloud from '../Assests/img/cloud.png';
-import Checkk from '../Assests/svg/checkk.svg';
 
 const About = () => {
   return (

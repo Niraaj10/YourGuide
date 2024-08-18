@@ -42,7 +42,7 @@ const Navbar = ({ user }) => {
           </div>
 
         </nav>
-          <div className='fixed z-50 bottom-0 bg-white border w-[98vw] p-1 mx-2 rounded-t-xl flex gap-10 lg:gap-24 font-semibold text-gray-700 justify-evenly items-center visible lg:h-0 lg:invisible md:invisible'>
+          <div className='fixed z-50 bottom-0 bg-white border w-[100vw] p-1  rounded-t-xl flex gap-10 lg:gap-24 font-semibold text-gray-700 justify-evenly items-center visible lg:h-0 lg:invisible md:invisible'>
 
               <Link to="/explore" className='flex gap-1 flex-col justify-center items-center'>
               <img src={exp} alt="" className='w-[20px]' />

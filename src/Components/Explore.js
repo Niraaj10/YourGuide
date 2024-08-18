@@ -5,7 +5,6 @@ import img3 from '../Assests/img/img-3.jpg'
 import img4 from '../Assests/img/img-4.jpg'
 import cloud from '../Assests/img/cloud.png'
 import cloud2 from '../Assests/img/cloud2.png'
-import bgEx from '../Assests/img/bgEx.jpg'
 import navigate from '../Assests/svg/Navi.svg'
 import search from '../Assests/svg/Search.svg'
 import Footer from './Footer'
@@ -23,7 +22,7 @@ const Explore = () => {
   const ContRef = useRef(null);
 
 
- console.log(attraction);
+ console.log(suggestions);
  
   const ChangeQuery = (e) => {
     setQuery(e.target.value);
