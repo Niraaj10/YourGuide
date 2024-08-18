@@ -1,0 +1,61 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "username": "johndoe",
+      "email": "johndoe@example.com",
+      "name": "John Doe",
+      "password": "password123"
+    },
+    {
+      "id": "2",
+      "username": "janedoe",
+      "email": "janedoe@example.com",
+      "name": "Jane Doe",
+      "password": "password456"
+    },
+    {
+      "id": "3",
+      "username": "samsmith",
+      "email": "samsmith@example.com",
+      "name": "Sam Smith",
+      "password": "password789"
+    },
+    {
+      "id": "4",
+      "username": "nira",
+      "email": "nira",
+      "password": "123"
+    },
+    {
+      "id": "5",
+      "username": "nisdfn",
+      "email": "finidf@gmail.com",
+      "password": "Pass"
+    },
+    {
+      "id": "6",
+      "username": "user11",
+      "email": "nkansa@gmail.com",
+      "password": "123"
+    },
+    {
+      "id": "7",
+      "username": "noddyy",
+      "email": "noddyy11@gmail.com",
+      "password": "123"
+    },
+    {
+      "id": "8",
+      "username": "bsdb",
+      "email": "nasn@asf.com",
+      "password": "123"
+    },
+    {
+      "id": 9,
+      "username": "nirra",
+      "email": "123@gmail.com",
+      "password": "123"
+    }
+  ]
+}
