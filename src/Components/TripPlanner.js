@@ -174,7 +174,7 @@ const TripPlanner = () => {
             </div>
           </div>
           <div className='text-xs font-semibold text-gray-400'>If api request is failed </div>
-          <div className='text-xs font-semibold text-gray-400'>use 'Pune' for the dummy info to check how the stuff looks </div>
+          <div className='text-xs font-semibold text-gray-400'>use 'pune' for the dummy info to check how the stuff looks </div>
         </div>
 
         {/* <div className='w-full mx-auto'>
@@ -195,7 +195,7 @@ const TripPlanner = () => {
 
 
           {error &&
-            <div className='mx-auto flex items-center justify-center'>
+            <div className='mx-auto flex flex-col lg:flex-row items-center justify-center'>
               Sorryyy, No information found please enter valid place...
               <span className='font-semibold'>or its api error use dummy info</span>
             </div>

@@ -176,7 +176,7 @@ const Explore = () => {
       
 
           {loading && <>
-          <div className='mx-auto absolute top-28 left-[50%]'>
+          <div className='flex justify-center items-center absolute top-28 left-[42%] lg:left-[50%]'>
           <BounceLoader color="#41D6C7" />
           </div>
           </>}
