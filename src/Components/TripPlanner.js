@@ -5,6 +5,7 @@ import search from '../Assests/svg/Search.svg';
 import down from '../Assests/svg/down.svg';
 import MMap from '../Assests/svg/MagicMap.svg'
 import BgTP from '../Assests/img/bgTP.jpg';
+import H1 from '../Assests/img/PlaH1.png';
 import BgTP2 from '../Assests/img/Tp2.jpg';
 import { BounceLoader } from 'react-spinners'
 import Footer from './Footer';
@@ -49,8 +50,10 @@ const TripPlanner = () => {
 
 
 
-  const handleClick = async () => {
+  const handleClick = async (e) => {
     // setError(null);
+    e.preventDefault();
+
     setLoading(true);
 
     if (ContRef.current) {
@@ -90,15 +93,17 @@ const TripPlanner = () => {
         <div className='w-full relative z-20  flex flex-col mx-auto justify-center items-center'>
           {/* <div className='text-white mt-[477px] lg:mt-[160px]'> */}
           <div className='text-white mt-[435px] lg:mt-[160px]'>
-            <div className='font-semibold lg:font-bold text-lg mx-auto lg:text-sm mb-[-17px] lg:mb-[-42px]'>Plan your trip with us with the help of AI</div>
-            <div className='fig text-[14vw] lg:text-[150px] font-bold drop-shadow-3xl' style={{ textShadow: '1px 1px 15px rgba(0, 0, 0, 0.6)' }}>Make your trip</div>
+            <div className='font-semibold lg:font-bold items-center text-center text-lg mx-auto lg:text-xl -mb-10 lg:-mb-32'>Plan your trip with us with the help of AI</div>
+            <div className='fig text-[14vw] lg:text-[150px] font-bold drop-shadow-3xl' style={{ textShadow: '1px 1px 15px rgba(0, 0, 0, 0.6)' }}>
+              <img src={H1} alt="" />
+            </div>
           </div>
           <div className='Inputs '>
             <div></div>
             <div className='flex flex-col gap-3 bg-white px-3 py-4 lg:px-20 lg:py-10 border rounded-lg  lg:rounded-3xl shadow-xl'>
               <div className='text-sm font-bold'>Please enter your trip details</div>
 
-              <div className='lg:border w-fit p-2 rounded-xl flex flex-col lg:flex-row justify-center items-center'>
+              <form onSubmit={handleClick} className='lg:border w-fit p-2 rounded-xl flex flex-col lg:flex-row justify-center items-center'>
                 <input type="text" className='outline-none border-b lg:border-none focus:outline-none w-80 pl-5' placeholder='Enter city' value={city} onChange={(e) => setCity(e.target.value)} />
 
                 <div className='relative hidden lg:block'>
@@ -123,10 +128,13 @@ const TripPlanner = () => {
                   </div>
                 </div>
 
-                <button onClick={handleClick} className='bg-[#41D6C7] p-3 rounded-full'>
+                {/* <button onClick={handleClick} className='bg-[#41D6C7] p-3 rounded-full'>
+                  <img src={search} alt="" className='' />
+                </button> */}
+                <button type="submit" className='bg-[#41D6C7] p-3 rounded-full'>
                   <img src={search} alt="" className='' />
                 </button>
-              </div>
+              </form>
             </div>
           </div>
           {/* <div className='text-xs font-semibold text-gray-400'>If api request is failed </div>

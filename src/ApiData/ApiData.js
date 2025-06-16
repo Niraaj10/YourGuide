@@ -98,10 +98,12 @@ export const fetchTripDataC = async (city, startDate, endDate) => {
 
   const options = {
     method: 'POST',
-    url: 'https://chatgpt-best-price.p.rapidapi.com/v1/chat/completions',
+    // url: 'https://chatgpt-best-price.p.rapidapi.com/v1/chat/completions',
+    url: 'https://open-ai21.p.rapidapi.com/chatgpt',
     headers: {
       'x-rapidapi-key': API_KEY,
-      'x-rapidapi-host': 'chatgpt-best-price.p.rapidapi.com',
+      // 'x-rapidapi-host': 'chatgpt-best-price.p.rapidapi.com',
+      'x-rapidapi-host': 'open-ai21.p.rapidapi.com',
       'Content-Type': 'application/json'
     },
     data: {
@@ -169,7 +171,9 @@ Only return pure JSON. Do not add any explanation or extra text before or after 
     // return response.data.choices[0].message.content;
 
     const response = await axios.request(options);
-    let content = response.data.choices[0].message.content;
+    console.log(response)
+    // let content = response.data.choices[0].message.content;
+    let content = response.data.result;
 
     content = content.replace(/```json|```/g, '').trim();
 
