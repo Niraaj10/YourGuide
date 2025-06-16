@@ -3,9 +3,9 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import axios from 'axios';
 
-const Mapp = ({ city }) => {
-  // const [coordinates, setCoordinates] = useState({ lat: '', lng: '' }); //// fetching the entered city's lng and lat 
-const [coordinates, setCoordinates] = useState({ lat: 18.5204, lng: 73.8567 });
+const Mapp = ({ city, lat, lng }) => {
+  // const [coordinates, setCoordinates] = useState({ lat: '', lng: '' }); //// fetching the entered city's lng and lat
+  const [coordinates, setCoordinates] = useState({ lat: lat || 18.5204, lng: lng || 73.8567 });
 
   useEffect(() => {
     // Function to fetch geocoding data
@@ -58,11 +58,13 @@ const [coordinates, setCoordinates] = useState({ lat: 18.5204, lng: 73.8567 });
     <div className='flex flex-col justify-center items-center'>
       <h1>Map of { city }</h1>
       <MapContainer center={[coordinates.lat, coordinates.lng]} zoom={12} style={{ height: '550px', width: '100%' }}>
+      {/* <MapContainer center={[lat, lng]} zoom={12} style={{ height: '550px', width: '100%' }}> */}
         <TileLayer
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         />
         <Marker position={[coordinates.lat, coordinates.lng]}>
+        {/* <Marker position={[lat, lng]}> */}
           <Popup>Pune</Popup>
         </Marker>
       </MapContainer>
